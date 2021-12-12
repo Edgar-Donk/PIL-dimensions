@@ -1,0 +1,94 @@
+﻿/*
+rem units based on 16px base html size
+
+    10px = 0.625rem
+    12px = 0.75rem
+    14px = 0.875rem
+    16px = 1rem (base)
+    18px = 1.125rem
+    20px = 1.25rem
+    24px = 1.5rem
+    30px = 1.875rem
+    32px = 2rem
+
+*/
+
+/*
+figure.imghvr-zoom-out-right, figurecaption {
+
+      display: block;
+      font-style: italic;
+      font-variant: small-caps;
+
+   }
+*/
+
+.toggle .header {
+    display: block;
+    clear: both;
+}
+
+.toggle .header:after {
+    content: "▶";
+}
+
+.toggle .header.open:after {
+    content: "▼";
+}
+
+div.topic {
+    background-color: #effcf9;
+    border-radius: 5px;
+}
+
+div.code, pre {
+    background-color: #eeffcc;
+    border-radius: 5px;
+}
+
+.pre {
+    font-weight: bolder;
+    color: #B70C2F;
+    font-size: 16px;
+}
+
+div.sidebar {
+    border-radius: 5px;
+}
+
+div.highlight {
+    background-color: #D2FFC4;
+    border-radius: 5px;
+}
+
+div.body p.caption {
+    font-size: 1.2em;
+}
+
+div.sphinxsidebarwrapper p.caption {
+    font-size: 1.4em;
+}
+
+div.sphinxsidebarwrapper ul {
+    font-size: .8em;
+    padding-left: 1em;
+}
+
+a:link {color:#4DC3D1;
+        hover:#4B61AA;
+} 
+
+table.align-center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* 
+rinotext
+[table body cell background on even row]
+fill_color = #00FF00
+
+
+[table body cell background on odd row]
+fill_color = #FFFFDD
+*/
