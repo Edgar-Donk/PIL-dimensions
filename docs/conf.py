@@ -25,7 +25,7 @@ release = '0'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [#'matplotlib.sphinxext.only_directives',
-    'matplotlib.sphinxext.plot_directive',
+    #'matplotlib.sphinxext.plot_directive',
     "sphinx.ext.autodoc",
     'sphinx.ext.napoleon',
     "sphinx.ext.autosummary",
