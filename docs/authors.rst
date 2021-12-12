@@ -23,7 +23,7 @@ Repository
 
 You should find all the python examples and their widget images here.
 
-`dims! <https://github.com/Edgar-Donk/dims>`_
+`PIL-dimensions <https://github.com/Edgar-Donk/PIL-dimensions>`_
 
 
 Read the Docs
@@ -31,7 +31,7 @@ Read the Docs
 
 Where you'll find the explanations.
 
-`Read the Docs <https://dims.readthedocs.io/en/latest/index.html>`_
+`Read the Docs <https://pil-dimensions.readthedocs.io/en/latest/>`_
 
 Navigation
 ==========
