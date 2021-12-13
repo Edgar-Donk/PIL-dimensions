@@ -2,7 +2,7 @@ AA Dimensions with atr
 ======================
 
 DimLinesattr package
-------------------
+--------------------
 
 .. automodule:: DimLinesattr
    :members:
