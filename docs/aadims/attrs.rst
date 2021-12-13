@@ -90,7 +90,7 @@ attr Attributes
 .. raw:: html
 
    <details>
-   <summary><a>Show/Hide <b>attr Attributes</b> Same as for dataclass</a></summary>
+   <summary><a>Show/Hide <b>attr Attributes</b>  similar to dataclass</a></summary>
 
 dimension_attr
 --------------

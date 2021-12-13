@@ -101,6 +101,11 @@ that the DimLinesDC module imports ``dc``::
 Dimension Scripts used in DimLinesDC
 =====================================
 
+.. raw:: html
+
+   <details>
+   <summary><a>Show/Hide <b>Dataclass Attributes</b> similar to antialias</a></summary>
+
 dimension_dc
 ------------
 
@@ -277,3 +282,7 @@ make_arc_dc
     Arc starting angle, degrees
 # finish
     Arc finishing angle, degrees
+
+.. raw:: html
+
+   </details>
