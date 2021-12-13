@@ -222,12 +222,23 @@ leader_dc
 # text
     Dimension text 
 
+.. raw:: html
+
+   </details>
+
+|
+
 Auxiliary DC Functions
 ======================
 
 These will be similar to the functions found in the antialiased dimensions
 except that the number of attributes have been reduced. The naming is also 
 similar, just that the suffix is changed.
+
+.. raw:: html
+
+   <details>
+   <summary><a>Show/Hide <b>Dataclass Auxiliary Functions</b> similar to antialias</a></summary>
 
 DashedLineDC
 ------------
