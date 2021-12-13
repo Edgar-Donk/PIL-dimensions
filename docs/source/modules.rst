@@ -7,3 +7,4 @@ Scripts
    dim-lines
    dim-lines-aa
    dim-lines-dc
+   dim-lines-atr
