@@ -62,12 +62,26 @@ dimension_attr.py line with arrows used as base for other dimensions
 """
 
 import attr
-from PIL import ImageDraw, ImageFont
+from PIL import ImageDraw, ImageFont, Image
 from math import sin, cos, radians, sqrt, atan2, pi, degrees
 
 from collections import defaultdict
 from DimLinesPIL import angled_text, int_up, polar2cart, cart2polar,\
         DashedLine
+
+def triple_tuple(instance, attribute, var):
+    """Validation function for attr class
+    Parameters
+    ----------
+    instance : str
+        attr handle
+    attribute : str
+        variable type
+    var : str
+        parameter
+    """
+    if isinstance(var, tuple) is False or len(var) !=3:
+        raise Exception('attr class atr: {} needs a 3 entry tuple'.format(var))
 
 @attr.s(slots=True, auto_attribs=True)
 class atr:
