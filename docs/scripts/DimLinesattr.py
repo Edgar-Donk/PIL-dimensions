@@ -37,7 +37,7 @@ dimension_attr.py line with arrows used as base for other dimensions
     1 pixel wide normal aa line
 * PartLineATTR,
     one pixel wide aa line which can switch off aa on one or other side
-* polyATTR, 
+* polyATTR,
     draws aa polygon
 * PartCircleATTR,
     aa circle with start and finish
@@ -61,7 +61,7 @@ dimension_attr.py line with arrows used as base for other dimensions
     leader to triangle on tank level
 """
 
-from attr
+import attr
 from PIL import ImageDraw, ImageFont
 from math import sin, cos, radians, sqrt, atan2, pi, degrees
 
