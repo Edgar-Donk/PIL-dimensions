@@ -40,26 +40,26 @@ added and the finishing point removed.
    <details>
    <summary><a>Show/Hide <b>thickness_dim_aa</b> Attributes</a></summary>
 
-# im 
+* im 
     PIL image handle, link to the calling program
-# ptA
+* ptA
     Start coordinates
-# thick 
+* thick 
     Thickness of item
-# angle
+* angle
     Slope of Dimension, changes text position, default horizontal 0°
-# text
+* text
     Text to be written next to the dimension
-# font
+* font
     Font of the text
-# fill
+* fill
     Line colour, RGB tuple
-# arrowhead
+* arrowhead
     Three integer tuple describing the shape and size of the arrow
-# arrow
+* arrow
     position of the arrow on the line, which influences the direction it 
     points.
-# back
+* back
         Background colour, RGB tuple
 
 .. raw:: html

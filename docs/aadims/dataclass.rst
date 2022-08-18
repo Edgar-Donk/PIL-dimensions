@@ -109,11 +109,11 @@ Dimension Scripts used in DimLinesDC
 dimension_dc
 ------------
 
-# ptA
+* ptA
     Start coordinates
-# ptB 
+* ptB 
     Finishing line coordinates, default None
-# angle
+* angle
     Angle in degrees, default None
 
 dims_dc
@@ -121,105 +121,105 @@ dims_dc
 
 External dimension
 
-# ptA
+* ptA
     Start coordinates
-# ptB 
+* ptB 
     Finishing line coordinates
-# extA
+* extA
     Two integer tuple, giving the extension line size and gap next to start
-# extB
+* extB
     Two integer tuple, giving the extension line size and gap next to end, 
     optional if the same as extA   
-# text
+* text
     Dimension text
-# textorient
+* textorient
     Change text orientation, “h”, “horizontal”, “v”, “vertical”
-# dimsorient
+* dimsorient
     confirm dimension orientation when extA and extB are unequal, 
     “h”, “horizontal”, “v”, “vertical”
-# tail
+* tail
     Show tails or arrows, default True
     
 inner_dim_dc
 ------------
 
-# ptA
+* ptA
     Start coordinates
-# ptB 
+* ptB 
     Finishing line coordinates
-# text
+* text
     Dimension text  
 
 thickness_dim_dc
 ----------------
 
-# ptA
+* ptA
     Start coordinates
-# thick 
+* thick 
     Thickness of item
-# angle
+* angle
     Slope of Dimension, changes text position, default horizontal 0°    
-# text
+* text
     Dimension text
 
 arc_dim_dc
 ----------
 
-# centre
+* centre
     Arc’s circle centre
-# radius
+* radius
     Arc’s circle radius
-# begin
+* begin
     Starting angle, in degrees or enclosing line coordinates
-# end
+* end
     Ending angle, in degrees or enclosing line coordinates
-# text
+* text
     Dimension text    
 
 slant_dim_dc
 ------------
 
-# ptA
+* ptA
     Start coordinates
-# ptB
+* ptB
     Finishing coordinates, optional
-# extA
+* extA
     Two integer tuple, giving the extension line size and gap next to start
-# angle
+* angle
     Slope of dimension, optional
-# length
+* length
     Dimension length, optional
-# text
+* text
     Dimension text
-# tail
+* tail
     Show tails or arrows, default True
 
 dim_level_dc
 ------------
 
-# at
+* at
     Coordinates at left tank wall level
-# diam
+* diam
     Tank diameter, pixels
-# ldr
+* ldr
     Inclined leader length, default 20
-# dash
+* dash
     Tuple giving dash pattern, dash length then gap default (10, 4)
-# text
+* text
     Dimension text
 
 leader_dc
 ---------
 
-# at
+* at
     Coordinates on object
-# angle
+* angle
     Angle of first extension line, changes leader orientation, default 315°
-# extA
+* extA
     Length inclined extension line, default 20
-# extB
+* extB
     Length inclined extension line, default 20
-# text
+* text
     Dimension text 
 
 .. raw:: html
@@ -243,23 +243,23 @@ similar, just that the suffix is changed.
 DashedLineDC
 ------------
 
-# pta
+* pta
     Starting point of line 
-# ptb
+* ptb
     Finishing point of line 
-# dash
+* dash
     Size of dash and gaps, default (5,5)
-# adjust
+* adjust
     Alter dash and gap size relative to slope, default False
 
 WideLineDC
 ----------
 
-# pta
+* pta
     Starting point of line 
-# ptb
+* ptb
     Finishing point of line 
-# width
+* width
     width in pixels, default 1
 
 LineDC
@@ -267,9 +267,9 @@ LineDC
 
 Always 1 pixel wide
 
-# pta
+* pta
     Starting point of line 
-# ptb
+* ptb
     Finishing point of line 
 
 polyDC
@@ -277,21 +277,21 @@ polyDC
 
 Filled antialiased polygon default
 
-# xy
+* xy
     List of point tuples
-# outline
+* outline
     rgb tuple if an unfilled polygon is required
 
 make_arc_dc
 -----------
 
-# centre
+* centre
     Arc circle centre
-# radius
+* radius
     Arc circle radius
-# start
+* start
     Arc starting angle, degrees
-# finish
+* finish
     Arc finishing angle, degrees
 
 .. raw:: html

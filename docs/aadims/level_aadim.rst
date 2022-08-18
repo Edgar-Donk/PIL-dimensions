@@ -24,33 +24,33 @@ AA Level Properties
    <details>
    <summary><a>Show/Hide <b>level_dim_aa</b> Attributes</a></summary>
 
-# im 
+* im 
     PIL image handle, link to the calling program
-# dr
+* dr
     PIL image handle, link to the calling program
-# at
+* at
     Coordinates at left tank wall level
-# diam    
+* diam    
     Tank diameter, pixels
-# ext
+* ext
     Tuple of extender length and gap, default 0 (internal dimension),
     enlarge the gap with very thick tank walls
-# ldrA
+* ldrA
     Inclined leader length, default 20, if negative the dimension is switched
     around
-# ldrA
+* ldrA
     Horizontal leader length, default 20
-# dash    
+* dash    
     Tuple giving dash pattern, dash length then gap default (10, 4)
-# text
+* text
     Dimension text
-# fill
+* fill
     Dimension colour, RGB tuple
-# back
+* back
     background colour, RGB tuple
-# tri
+* tri
     Level indicator, equilateral triangle default 8
-# font
+* font
     Font of the text, default None
 
 .. raw:: html

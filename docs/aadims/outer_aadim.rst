@@ -38,32 +38,32 @@ Outer AA Dimension Attributes
    <details>
    <summary><a>Show/Hide <b>dims_aa</b> properties</a></summary>
 
-# im 
+* im 
     PIL image handle, link to the calling program
-# ptA
+* ptA
     Start coordinates
-# ptB 
+* ptB 
     Finishing coordinates
-# extA
+* extA
     Two integer tuple, giving the extension line size and gap next to start,
-# extB
+* extB
     Two integer tuple, giving the extension line size and gap next to end,
     optional if the same as extA
-# text
+* text
     Dimension text
-# font
+* font
     Font of the text
-# textorient
+* textorient
     Change text orientation, "h", "horizontal", "v", "vertical" 
-# fill
+* fill
     Line colour, RGB tuple
-# back
+* back
     Background colour, RGB tuple  
-# tail
+* tail
     Show tails or arrows, default **True**
-# arrowhead
+* arrowhead
     Three integer tuple describing the shape and size of the arrow
-# arrow
+* arrow
     position of the arrow on the line, which influences the direction it 
     points.
 

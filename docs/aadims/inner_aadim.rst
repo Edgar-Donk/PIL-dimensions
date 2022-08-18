@@ -31,26 +31,26 @@ added and angle is no longer necessary.
    <details>
    <summary><a>Show/Hide <b>inner_dim_aa</b> properties</a></summary>
 
-# im 
+* im 
     PIL image handle, link to the calling program
-# dr 
+* dr 
     PIL draw handle, link to the calling program
-# ptA
+* ptA
     Start coordinates
-# ptB 
+* ptB 
     Finishing coordinates 
-# text
+* text
     Text to be written next to the dimension
-# font
+* font
     Font of the text
-# fill
+* fill
     Line colour, as an RGB tuple 
-# arrowhead
+* arrowhead
     Three integer tuple describing the shape and size of the arrow
-# arrow
+* arrow
     position of the arrow on the line, which influences the direction it 
     points.
-# back
+* back
     Background colour, as an RGB tuple    
 
 .. raw:: html

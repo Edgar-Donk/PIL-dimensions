@@ -37,34 +37,34 @@ Slanting AA Dimension Properties
    <details>
    <summary><a>Show/Hide <b>slant_dim_aa</b> Attributes</a></summary>
 
-# im 
+* im 
     PIL image handle, link to the calling program
-# dr
+* dr
     PIL drawing handle, link to the calling program
-# ptA
+* ptA
     Start coordinates
-# ptB 
+* ptB 
     Finishing coordinates, optional
-# extA
+* extA
     Two integer tuple, giving the extension line size and gap next to start
-# angle
+* angle
     Slope of dimension, optional
-# length
+* length
     Dimension length, optional
-# text
+* text
     Dimension text
-# font
+* font
     Font of the text
-# fill
+* fill
     Line colour, RGB tuple
-# back
+* back
     Background colour, RGB tuple
-# tail
+* tail
     Show tails or arrows, default **True**
-# arrowhead
+* arrowhead
     Three integer tuple describing the shape and size of the arrow, default
     (10,8,3)
-# arrow
+* arrow
     position of the arrow on the line, which influences the direction it 
     points, default **both**
 

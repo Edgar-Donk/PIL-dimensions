@@ -25,32 +25,32 @@ AA Dimension Attributes
 
 The PIL line has 3 documented attributes
 
-# xy
+* xy
     Sequence of 2 tuples like  [(x, y), (x, y), ...] or numeric values like 
     [x, y, x, y, ...].
-# fill
+* fill
     Line colour, as an RGB tuple
-# width
+* width
     Line width in pixels
 
 dimension_aa is similar to line, with the following changes
 
-# im
+* im
     PIL image handle, linked to calling program
-# dr 
+* dr 
     PIL draw handle, link to the calling program
-# ptA
+* ptA
     Start coordinates
-# ptB 
+* ptB 
     Finishing line coordinates, optional
-# angle
+* angle
     Angle in degrees, optional    
-# arrowhead
+* arrowhead
     Three integer tuple describing the shape and size of the arrow
-# arrow
+* arrow
     position of the arrow on the line, which influences the direction it 
     points.
-# back
+* back
     Background colour, as an RGB tuple
     
 Width has been removed.

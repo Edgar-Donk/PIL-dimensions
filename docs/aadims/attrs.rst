@@ -95,13 +95,13 @@ attr Attributes
 dimension_attr
 --------------
 
-# ptA
+* ptA
     Start coordinates
-# ptB 
+* ptB 
     Finishing line coordinates, default None
-# angle
+* angle
     Angle in degrees, default None
-# arrow
+* arrow
     position of the arrow on the line, which influences the direction it 
     points, 'first', 'last' or 'both'
 
@@ -110,105 +110,105 @@ dims_attr
 
 External dimension
 
-# ptA
+* ptA
     Start coordinates
-# ptB 
+* ptB 
     Finishing line coordinates
-# extA
+* extA
     Two integer tuple, giving the extension line size and gap next to start
-# extB
+* extB
     Two integer tuple, giving the extension line size and gap next to end, 
     optional if the same as extA   
-# text
+* text
     Dimension text
-# textorient
+* textorient
     Change text orientation, “h”, “horizontal”, “v”, “vertical”
-# dimsorient
+* dimsorient
     confirm dimension orientation when extA and extB are unequal, 
     “h”, “horizontal”, “v”, “vertical”
-# tail
+* tail
     Show tails or arrows, default True
     
 inner_dim_attr
 --------------
 
-# ptA
+* ptA
     Start coordinates
-# ptB 
+* ptB 
     Finishing line coordinates
-# text
+* text
     Dimension text  
 
 thickness_dim_attr
 ------------------
 
-# ptA
+* ptA
     Start coordinates
-# thick 
+* thick 
     Thickness of item
-# angle
+* angle
     Slope of Dimension, changes text position, default horizontal 0°    
-# text
+* text
     Dimension text
 
 arc_dim_attr
 ------------
 
-# centre
+* centre
     Arc’s circle centre
-# radius
+* radius
     Arc’s circle radius
-# begin
+* begin
     Starting angle, in degrees or enclosing line coordinates
-# end
+* end
     Ending angle, in degrees or enclosing line coordinates
-# text
+* text
     Dimension text    
 
 slant_dim_attr
 --------------
 
-# ptA
+* ptA
     Start coordinates
-# ptB
+* ptB
     Finishing coordinates, optional
-# extA
+* extA
     Two integer tuple, giving the extension line size and gap next to start
-# angle
+* angle
     Slope of dimension, optional
-# length
+* length
     Dimension length, optional
-# text
+* text
     Dimension text
-# tail
+* tail
     Show tails or arrows, default True
 
 dim_level_attr
 --------------
 
-# at
+* at
     Coordinates at left tank wall level
-# diam
+* diam
     Tank diameter, pixels
-# ldr
+* ldr
     Inclined leader length, default 20
-# dash
+* dash
     Tuple giving dash pattern, dash length then gap default (10, 4)
-# text
+* text
     Dimension text
 
 leader_attr
 -----------
 
-# at
+* at
     Coordinates on object
-# angle
+* angle
     Angle of first extension line, changes leader orientation, default 315°
-# extA
+* extA
     Length inclined extension line, default 20
-# extB
+* extB
     Length inclined extension line, default 20
-# text
+* text
     Dimension text 
 
 .. raw:: html

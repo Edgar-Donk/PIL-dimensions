@@ -55,14 +55,14 @@ PIL throughout it is possible to mix and match.
 
 The comments for the :ref:`orthogonal dimensions<introdims>` apply.
 
-#. Adding arrows to an antialiased line
+* Adding arrows to an antialiased line
     The arrows are antialiased.
 
-#. Dashed antialiased line
+* Dashed antialiased line
     Used on lines 1 pixel wide, as wider lines require that the width is not
     larger than the dash length.
 
-#. Angled text
+* Angled text
     No change required
 
 Since colour for the antialiasing changes, ensure that the component and  
