@@ -21,14 +21,14 @@ The images show lines and arrow created by PIL on the left and tkinter.
 Additional line and text functions have been created for PIL, with the 
 following attributes.
 
-#. Adding arrows to a line
+* Adding arrows to a line
     Use ``arrow`` which positions the arrow and ``arrowshape`` a tuple that
     defines its shape.
 
-#. Dashed line
+* Dashed line
     Use ``dash`` that is a tuple to specify the dash and spaces.
     
-#. Angled text
+* Angled text
     Text made at an angle, given in degrees, and the text anchor point
     has been changed to the text centre.
 

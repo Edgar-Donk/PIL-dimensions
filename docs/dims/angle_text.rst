@@ -26,27 +26,27 @@ that provided by stenci
 
 PIL text has the following properties
 
-# xy
+* xy
     Top left text corner
-# text
+* text
     Text to be written, if it contains a newline, then it is passed onto 
     multiline_text
-# fill
+* fill
     Text colour
-# font
+* font
     ImageFont instance
-# anchor
+* anchor
     Specify alternate anchor points, used on TTF fonts.
 
 The angled text has the following additions and changes.
 
-# im
+* im
     PIL image handle, link to the calling program
-# at
+* at
     anchor to text middle
-# angle
+* angle
     text angle in degrees
-# aall
+* aall
     integer showing whether to have all angles, default all angles 1
 
 .. raw:: html

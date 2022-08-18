@@ -12,31 +12,31 @@ Level Properties
    <details>
    <summary><a>Show/Hide <b>Level Dimension</b> Attributes</a></summary>
 
-# im 
+* im 
     PIL image handle, link to the calling program
-# dr
+* dr
     PIL drawing handle, link to the calling program
-# at
+* at
     Coordinates at left tank wall level
-# diam    
+* diam    
     Tank diameter, pixels
-# ldrA
+* ldrA
     Inclined leader length, default 20
-# ldrB
+* ldrB
     Horizontal leader length, default 20
-# ext
+* ext
     Tuple of length external extender and gap, if an integer then the 
     extender touches the vessel wall, unless it is 0 then the dimension
     becomes internal, default 0
-# dash    
+* dash    
     Tuple giving dash pattern, dash length then gap default (10, 4)
-# text
+* text
     Dimension text, default None
-# font
+* font
     Font of the text, default None
-# fill
+* fill
     Dimension colour RGB tuple, default (0,0,0)
-# tri
+* tri
     Level indicator, equilateral triangle default 8
 
 .. raw:: html

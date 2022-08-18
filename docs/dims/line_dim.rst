@@ -22,29 +22,29 @@ Dimension Properties
 
 PIL line has 3 documented attributes
 
-# xy
+* xy
     Sequence of 2 tuples like  [(x, y), (x, y), ...] or numeric values like 
     [x, y, x, y, ...].
-# fill
+* fill
     Line colour
-# width
+* width
     Line width in pixels
 
 Dimension is similar to line, with the following changes
 
-# dr 
+* dr 
     PIL drawing handle, link to the calling program
-# ptA
+* ptA
     Start coordinates
-# ptB
+* ptB
     Finish coordinates
-# arrowhead
+* arrowhead
     Three integer tuple describing the shape and size of the arrow,
     default (8, 10, 3)
-# arrow
+* arrow
     position of the arrow on the line, which influences the direction it 
     points, default 'last'.
-# fill
+* fill
     Colour as RGB tuple, default (0,0,0)
 
 .. raw:: html

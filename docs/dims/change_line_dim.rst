@@ -7,9 +7,9 @@ Some of the other dimensions just arrows, not necessarily pointing outwards.
 Changed Properties Line Dimension
 ---------------------------------
 
-# ptB 
+* ptB 
     Finishing coordinates used on a line, optional, default None.
-# angle
+* angle
     Slope of arrow in degrees used when working just with arrows, optional,
     default None.
 

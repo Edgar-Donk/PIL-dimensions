@@ -31,26 +31,26 @@ orthogonal manner.
    <details>
    <summary><a>Show/Hide <b>Inner Dimension</b> Attributes</a></summary>
 
-# im 
+* im 
     PIL image handle, link to the calling program
-# dr
+* dr
     PIL drawing handle, link to the calling program
-# ptA
+* ptA
     Start coordinates
-# ptB 
+* ptB 
     Finishing coordinates 
-# text
+* text
     Text to be written next to the dimension, default None
-# font
+* font
     Font of the text, default None
-# fill
+* fill
     Line colour RGB tuple, default (0,0,0)
-# width
+* width
     Line width in pixels, default 1
-# arrowhead
+* arrowhead
     Three integer tuple describing the shape and size of the arrow, 
     default (8,10,3)
-# arrow
+* arrow
     position of the arrow on the line, which influences the direction it 
     points, default "both".
 

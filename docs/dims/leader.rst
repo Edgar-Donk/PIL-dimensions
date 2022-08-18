@@ -12,27 +12,27 @@ Leader Properties
    <details>
    <summary><a>Show/Hide <b>Leader</b> Attributes</a></summary>
 
-# im 
+* im 
     PIL image handle, link to the calling program
-# at
+* at
     Coordinates on object
-# angle
+* angle
     Angle of first extension line, changes leader orientation
-# extA
+* extA
     Length inclined extension line, default 20
-# extB
+* extB
     Length horizontal extension line, default 20
-# text
+* text
     Dimension text
-# font
+* font
     Font of the text
-# fill
+* fill
     Line colour
-# width
+* width
     Line width in pixels 
-# arrowhead
+* arrowhead
     Three integer tuple describing the shape and size of the arrow
-# arrow
+* arrow
     position of the arrow on the line, which influences the direction it 
     points.     
 

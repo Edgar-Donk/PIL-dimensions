@@ -43,35 +43,35 @@ Angle Dimension Properties
 
 PIL has a separate arc method with the following properties.
 
-# xy
+* xy
     Four points to define the bounding box. Sequence of [(x0, y0), (x1, y1)] 
     or [x0, y0, x1, y1].
-# start
+* start
     Starting angle, in degrees
-# end   
+* end   
     Ending angle, in degrees.
-# fill
+* fill
     Arc colour
 
 Angled dimension is similar to the arc with some changes
 
-# im 
+* im 
     PIL image handle, link to the calling program
-# centre
+* centre
     Arc's circle centre
-# radius
+* radius
     Arc's circle radius
-# begin
+* begin
     Starting angle, in degrees
-# end   
+* end   
     Ending angle, in degrees.
-# fill
+* fill
     Arc colour    
-# text
+* text
     Text to be written next to the dimension
-# font
+* font
     Font of the text
-# arrowhead
+* arrowhead
     Three integer tuple describing the shape and size of the arrow
 
 

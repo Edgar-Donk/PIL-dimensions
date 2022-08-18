@@ -37,35 +37,35 @@ Slanting Dimension Properties
    <details>
    <summary><a>Show/Hide <b>Slanting Dimension</b> Attributes</a></summary>
 
-# im 
+* im 
     PIL image handle, link to the calling program
-# dr
+* dr
     PIL drawing handle, link to the calling program
-# ptA
+* ptA
     Start coordinates
-# ptB 
+* ptB 
     Finishing coordinates, optional default None
-# extA
+* extA
     Two integer tuple, giving the extension line size and gap next to start
     default (8,3)
-# angle
+* angle
     Slope of dimension, optional default None
-# length
+* length
     Dimension length, optional default None
-# text
+* text
     Dimension text, optional default None
-# font
+* font
     Font of the text, optional default None
-# fill
+* fill
     Line colour RGB tuple, default (0,0,0)
-# width
+* width
     Line width in pixels, default 1
-# arrowhead
+* arrowhead
     Three integer tuple describing the shape and size of the arrow
-# arrow
+* arrow
     position of the arrow on the line, which influences the direction it 
     points.
-# tail
+* tail
     Show tails or arrows, default **True**
 
 .. raw:: html
