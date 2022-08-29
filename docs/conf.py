@@ -80,5 +80,15 @@ html_static_path = ['_static']
 def setup(app):
     app.add_css_file('custom.css')
 
-html_logo = '_static/ben_dim.png'
+html_theme_options = {
+   "logo": {
+      "text": "a whole new dimension",
+      "image_light": 'bigbenc.png',
+      "image_dark": "bigbencneon.png",
+   }
+}
+
+#html_logo = '_static/ben_dim.png'
+
+
 html_favicon = '_static/ben1.ico'
