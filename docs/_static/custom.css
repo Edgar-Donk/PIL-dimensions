@@ -13,16 +13,6 @@ rem units based on 16px base html size
 
 */
 
-/*
-figure.imghvr-zoom-out-right, figurecaption {
-
-      display: block;
-      font-style: italic;
-      font-variant: small-caps;
-
-   }
-*/
-
 .toggle .header {
     display: block;
     clear: both;
@@ -41,8 +31,9 @@ div.topic {
     border-radius: 5px;
 }
 
+# #eeffcc
 div.code, pre {
-    background-color: #eeffcc;
+    background-color: #f0f0f0;
     border-radius: 5px;
 }
 
@@ -74,13 +65,22 @@ div.sphinxsidebarwrapper ul {
     padding-left: 1em;
 }
 
-a:link {color:#4DC3D1;
-        hover:#4B61AA;
+# color:#4DC3D1
+a:link {color: #7787D2;
+        hover: #4B61AA;
 } 
 
 table.align-center {
     margin-left: auto;
     margin-right: auto;
+}
+
+/* color 89323A; */
+p.logo__title {
+   font-size: 25px;
+   color: #ff073a;
+   text-shadow: 0 0 3px #ccff02;
+   float: left;
 }
 
 /* 
