@@ -12,7 +12,6 @@ rem units based on 16px base html size
     32px = 2rem
 
 */
-
 .toggle .header {
     display: block;
     clear: both;
@@ -26,12 +25,17 @@ rem units based on 16px base html size
     content: "▼";
 }
 
-div.topic {
+div.topic[data-theme="light"] {
     background-color: #effcf9;
     border-radius: 5px;
 }
 
-# #eeffcc
+div.topic[data-theme="dark"] {
+    foreground-color: #A6A6A6;
+    border-radius: 5px;
+}
+
+/* #eeffcc */
 div.code, pre {
     background-color: #f0f0f0;
     border-radius: 5px;
@@ -65,9 +69,8 @@ div.sphinxsidebarwrapper ul {
     padding-left: 1em;
 }
 
-# color:#4DC3D1
-a:link {color: #7787D2;
-        hover: #4B61AA;
+a:link {color:#7787D2;
+        hover:#4B61AA;
 } 
 
 table.align-center {
@@ -77,18 +80,7 @@ table.align-center {
 
 /* color 89323A; */
 p.logo__title {
-   font-size: 25px;
+   font-size: 30px;
    color: #ff073a;
    text-shadow: 0 0 3px #ccff02;
-   float: left;
 }
-
-/* 
-rinotext
-[table body cell background on even row]
-fill_color = #00FF00
-
-
-[table body cell background on odd row]
-fill_color = #FFFFDD
-*/
