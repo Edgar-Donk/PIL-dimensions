@@ -56,9 +56,6 @@ Dimension is similar to line, with the following changes
 Arrow and Arrowshape Attributes
 -------------------------------
 
-**arrow** has three options "first", "last" and "both" which
-positions the arrow relative to the line ends. 
-
 .. figure:: ../figures/dims/draw_arrow.png
     :width: 300
     :height: 160
@@ -76,6 +73,9 @@ arrow (AC), the second d2 is the length between the point and trailing tips
 (AF) and lastly the perpendicular distance d3 between the shaft and the 
 trailing tips (EF). The default value (8, 10, 3) is not a right angled 
 triangle but produces a shape like that of a swift's tail. 
+
+**arrow** has three options "first", "last" and "both" which
+positions the arrow relative to the line ends. 
 
 Create Dimension Script
 -----------------------
