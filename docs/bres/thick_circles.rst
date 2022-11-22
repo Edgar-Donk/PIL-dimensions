@@ -9,7 +9,7 @@ Thick Circles
 
    **Concentric circles**
    
-   When drawing concentric circles, based on the single width script, often 
+   Often when drawing concentric circles, based on the single width script, 
    there are gaps between the circles. (the paths of each circle differ)
 
 Using thick :ref:`lines<thick-lines>` as an example, assume that the circles 
@@ -32,9 +32,9 @@ and their differences from the true circle.
 
 .. _amalgam:
 
-The following script is an amalgam of the mid-point algorithm. Using the
-Zigl error values as differences
-used for antialiased circles 1 pixel wide
+The following script is an amalgam of the mid-point algorithm and the
+Zigl error values used as differences
+for antialiased circles 1 pixel wide
 
 .. raw:: html
 

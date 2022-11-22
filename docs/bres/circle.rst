@@ -131,11 +131,11 @@ generate the colour for antialiasing pixels.
    
    The difference values in the other 3 sectors will be mirrored.
 
-Note that moving outwards the differences 
-become larger at a faster rate, so the centre (difference -25) on a 5 pixel 
-circle is 4
-diagonals away from the circumference, between (-3,3) and (-4,4), whereas 2 
-pixels further outwards (-5,5) there is a difference of 25. Using the 
+Moving outwards the differences 
+change at a faster rate, so the centre (difference -25) on a 5 pixel 
+circle is 3 pixel
+diagonals away from the circumference, between (-3,3) and (-4,4), whereas a 
+further 2 pixels outwards (-5,5) there is a difference of 25. Using the 
 differences as they stand would favour antialiasing on the inside.
 
 .. |start| image:: ../figures/bres/circle_errors_start.png
