@@ -376,7 +376,7 @@ essentially the same as already developed.
     Shallow antialiased line, antialiasing values are mirrored with opposite
     signs. 
     
-    This figure was made direcly from the antialiasing difference values 
+    This figure was made directly from the antialiasing difference values 
     without using any algorithm.
 
 .. figure:: ../figures/aadims/aa_line_3_10.png
