@@ -34,6 +34,7 @@ extensions = [#'matplotlib.sphinxext.only_directives',
     'sphinx.ext.autosectionlabel',
     'sphinx.ext.todo',
     #'sphinx_toolbox.confval',
+    'sphinx_copybutton'
 ]
 
 napoleon_google_docstring = False
