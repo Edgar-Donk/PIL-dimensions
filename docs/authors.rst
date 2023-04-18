@@ -160,4 +160,12 @@ Linking Python to Arduino
 
 Basics and working with VPython, then create a digital gauge.
 
-    
+Water Properties
+----------------
+
+.. _ale: https://adams-ale.readthedocs.io/en/latest/index.html
+
+.. image:: _static/ben_ale.png
+   :target: ale_
+
+Simplified but accurate water proerties with interactive altair plots.
