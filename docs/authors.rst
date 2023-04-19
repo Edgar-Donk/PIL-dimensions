@@ -136,6 +136,8 @@ Some of the trickier parts of tkinter.ttk
 .. _froth: https://frothy-brew.readthedocs.io/en/latest/index.html
 
 .. image:: _static/frothy_brew.png
+   :width: 700
+   :height: 132
    :target: froth_
 
 From ttk.notebook to ttk.scale, with canvas move and create a colour picker.
@@ -146,6 +148,8 @@ Styling with tkinter.ttk
 .. _style: https://tkinterttkstyle.readthedocs.io/en/latest/index.html
 
 .. image:: _static/ben_style.png
+   :width: 831
+   :height: 104
    :target: style_
 
 Creating your own theme using Style.
@@ -156,6 +160,8 @@ Linking Python to Arduino
 .. _ard: https://electronic-python.readthedocs.io/en/latest/index.html
 
 .. image:: _static/arduino.png
+   :width: 798
+   :height: 145
    :target: ard_
 
 Basics and working with VPython, then create a digital gauge.
@@ -166,6 +172,8 @@ Water Properties
 .. _ale: https://adams-ale.readthedocs.io/en/latest/index.html
 
 .. image:: _static/ben_ale.png
+   :width: 798
+   :height: 145
    :target: ale_
 
 Simplified but accurate water proerties with interactive altair plots.
