@@ -1,10 +1,10 @@
-=======================
+﻿=======================
 Different Line Patterns
 =======================
 
 The method of selecting the dash configuration was based on table 10 in the 
 Canvas Line options `"Tkinter 8.5 reference a GUI for Python" 
-<https://www.hsg-kl.de/faecher/inf/python/tkinter/tkinter.pdf>`_. Here a
+<https://tkdocs.com/shipman/tkinter.pdf>`_. Here a
 single entry in the tuple produces alternate dashes and spaces of equal 
 length, whereas a larger number of entries specify the dash and space 
 pattern. For instance ::
