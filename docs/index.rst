@@ -1,4 +1,4 @@
-.. _dims:
+﻿.. _dims:
 
 ===================
 Dimensioning in PIL
