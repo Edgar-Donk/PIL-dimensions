@@ -1,4 +1,4 @@
-AA Dimensions with PIL
+﻿AA Dimensions with PIL
 ======================
 
 DimLinesAA package
