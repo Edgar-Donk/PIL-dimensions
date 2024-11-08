@@ -115,7 +115,8 @@ def line_dashed(dr, start_pos, end_pos=None, dash=(5,5), angle=None,
 
 if __name__ == "__main__":
     Font = ImageFont.truetype('consola.ttf', 12)
-    wide, height = Font.getsize('(30, 84)')
+    # wide, height = Font.getsize('(30, 84)')
+    unused1, unused2, wide, height = Font.getbbox('(30, 84)')
 
     Dash = (21,3,3,3)
     Dash1 = (7,1,1,1)

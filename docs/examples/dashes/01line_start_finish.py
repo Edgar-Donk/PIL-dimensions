@@ -22,7 +22,8 @@ draw.line([a, b], fill='black')
 draw.line([c, d], fill='black')
 draw.line([e,f], fill='black')
 
-width, height = Font.getsize(str(d))
+# width, height = Font.getsize(str(d))
+unused1, unused2, width, height = Font.getbbox(str(d))
 
 angled_text(image, (a[0] + 10 + width//2, a[1]),text=str(a), angle=0, fill='black',
             font=Font)

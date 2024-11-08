@@ -76,13 +76,15 @@ if __name__ == "__main__":
     image = Image.new('RGB', (w,h), '#FFFFDD')
     draw = ImageDraw.Draw(image)
 
-    wide, height = Font.getsize('(30, 84)')
+    # wide, height = Font.getsize('(30, 84)')
+    ununused1, unused2, wide, height = Font.getbbox('(30, 84)')
 
     for i in range(Nr_lines):
         angled_text(image, (arr[i][0], arr[i][1] + 10 + wide//2),text=str(arr[i]),
                 angle=90, fill='black', font=Font)
 
     for j in range(Nr_lines - 1):
+        # TypeError: only length-1 arrays can be converted to Python scalars
         dims(image, draw, arr[j], arr[j+1], (8, 2), text='15', font=Font, fill='lightgreen',
                 textorient='vertical')
 

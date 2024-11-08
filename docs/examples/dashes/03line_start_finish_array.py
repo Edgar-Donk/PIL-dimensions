@@ -17,6 +17,7 @@ arr =[(30, 10),
 (30, 70),
 (30, 84)]
 
+print('len(arr)', len(arr), arr)
 nr_lines = len(arr)
 
 draw = ImageDraw.Draw(image)
@@ -29,7 +30,8 @@ draw.line([e,f], fill='black')
 [draw.line([tuple(arr[n]), tuple(arr[n+1])], width=1, fill='black')
             for n in range(0, nr_lines, 2)]
 
-width, height = Font.getsize(str(arr[4]))
+# width, height = Font.getsize(str(arr[4]))
+unused1, unused2, width, height = Font.getbbox(str(arr[4]))
 
 for i in range(nr_lines):
     angled_text(image, (arr[i][0] + 10 + width//2, arr[i][1]),text=str(arr[i]),

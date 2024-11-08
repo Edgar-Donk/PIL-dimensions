@@ -103,15 +103,16 @@ def line_dashed(dr, start_pos, end_pos=None, dash=(5,5), angle=None,
     nr_lines = len(fin_arr) //2 * 2
 
     [dr.line([tuple(fin_arr[n]), tuple(fin_arr[n+1])], width=width, fill=fill)
-            for n in range(0, nr_lines, 2)] 
+            for n in range(0, nr_lines, 2)]
 
 if __name__ == "__main__":
 
     Font = ImageFont.truetype('consola.ttf', 12)
-    wide, height = Font.getsize('(30, 84)')
+    #wide, height = Font.getsize('(30, 84)')
+    unused1, unused2, wide, height = Font.getbbox('(30, 84)')
 
     Dash = (21,3,3,3)
-    
+
     Dash1 = (7,1,1,1)
 
     w, h = 200, 200

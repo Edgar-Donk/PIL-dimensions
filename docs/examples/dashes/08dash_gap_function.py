@@ -123,7 +123,8 @@ if __name__ == "__main__":
     image = Image.new('RGB', (w,h), '#FFFFDD')
     draw = ImageDraw.Draw(image)
 
-    wide, height = Font.getsize('(30, 84)')
+    #wide, height = Font.getsize('(30, 84)')
+    unused1, unused2, wide, height = Font.getbbox('(30, 84)')
 
     line_dashed(draw, Start_pos, End_pos, dash=Dash, width = 1, fill='black')
     #line_dashed(image, (x0, y0), (x1, y1), dash=dash, width = 1, fill='black')

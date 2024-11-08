@@ -64,7 +64,9 @@ if __name__ == "__main__":
     image = Image.new('RGB', (w,h), '#FFFFDD')
     draw = ImageDraw.Draw(image)
 
-    wide, height = Font.getsize('(30, 84)')
+    # wide, height = Font.getsize('(30, 84)')
+    unused1, unused2, wide, height = Font.getbbox('(30, 84)')
+
 
     for i in range(nr_lines):
         angled_text(image, (arr[i][0] + 10 + wide//2, arr[i][1]),text=str(arr[i]),
