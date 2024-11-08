@@ -31,10 +31,10 @@ extensions = [#'matplotlib.sphinxext.only_directives',
     "sphinx.ext.autosummary",
     # "numpydoc",
     'sphinx.ext.mathjax',
+    'sphinx_copybutton',
     'sphinx.ext.autosectionlabel',
     'sphinx.ext.todo',
     #'sphinx_toolbox.confval',
-    'sphinx_copybutton'
 ]
 
 napoleon_google_docstring = False

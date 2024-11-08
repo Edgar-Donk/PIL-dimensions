@@ -87,6 +87,17 @@ To save repetitious attribute options use a dataclass.
     
    aadims/index_aadims
 
+General
+=======
+
+A comparison using Python classic class structure and those attuned to
+dataclass and the third party package attrs.
+
+.. toctree::
+    :maxdepth: 3
+    
+    gen/index_gen
+
 Sources for Documentation
 =========================
 
