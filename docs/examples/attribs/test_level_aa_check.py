@@ -29,7 +29,8 @@ def level_dim_attr(at, diam, ext=(15, 3), ldrA=20, ldrB=50, dash=(10,4),
         raise Exception('out_dim_level: The extension tuple ext {} should be one' \
                         ' or two entries'.format(ext))
 
-    wide = aq.font.getsize(text) if text is not None else (0,0)
+    # wide = aq.font.getsize(text) if text is not None else (0,0)
+    wide = aq.font.getbbox(text) if text is not None else (0,0)
 
     angle = 0
 
@@ -55,7 +56,7 @@ def level_dim_attr(at, diam, ext=(15, 3), ldrA=20, ldrB=50, dash=(10,4),
 
     ldr_s = abs(p5[0] - p4[0])
 
-    if ldr_s < wide[0]:
+    if ldr_s < wide[2]:
         raise Exception('The leader size is too small: {} should be larger '\
                         'than the text width {}'.format(ldr_s, wide))
 
@@ -77,13 +78,13 @@ def level_dim_attr(at, diam, ext=(15, 3), ldrA=20, ldrB=50, dash=(10,4),
         else:
             LineATTR(p1, p4, fill=aq.fill, back=aq.back)
             aq.draw.line([at, (at[0] - exto, at[1])], width = 1, fill=aq.fill)
-            
+
     if ext == 0:
         DashedLineATTR(p4, p5, dash=dash)
     else:
         aq.draw.line([p4, p5], width = 1, fill=aq.fill)
 
-    p6 = (int((p4[0] + p5[0])//2), p4[1] - wide[1] - 5)
+    p6 = (int((p4[0] + p5[0])//2), p4[1] - wide[3] - 5)
 
     angled_text(aq.image, p6, text, angle, aq.font, fill=aq.fill)
 

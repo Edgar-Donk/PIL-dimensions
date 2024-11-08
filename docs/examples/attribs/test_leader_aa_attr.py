@@ -63,7 +63,8 @@ def leader_attr(at, angle=315, extA=20, extB=20, text=None):
     # for second part (extB). Only one arrow where leader points.
     # start at,
 
-    (wide, height) = aq.font.getsize(text)
+    #(wide, height) = aq.font.getsize(text)
+    unused1, unused2, wide, height = aq.font.getbbox(text)
 
     h = height // 2
 
@@ -91,7 +92,8 @@ if __name__ == "__main__":
     Text = 'y+ε+m'
 
     #font = ImageFont.truetype('consola.ttf', 12)
-    (wi, ht) = aq.font.getsize(Text)
+    #(wi, ht) = aq.font.getsize(Text)
+    unused1, unused2, wi, ht = aq.font.getbbox(Text)
 
     eb = wi + 10
     #back = (225,225,221)

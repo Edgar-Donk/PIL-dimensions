@@ -10,7 +10,7 @@ def rgb_tuple(instance, attribute, var):
 class atr:
     image = attr.ib()
     draw = attr.ib(init=False)
-    
+
     #fill: tuple[int] = attr.ib(validator=[attr.validators.instance_of(tuple),
                         #default=(0,0,0))
     fill = attr.ib(default=(0,0,0))
@@ -55,6 +55,7 @@ a = atr(im, 'both')
 
 print(a,'first')
 
+# Exception: attr class atr: fill both needs a 3 entrytuple
 a = atr(im, 'both', fill=(255,0,0))
 #a.fill=(255,0,0)
 

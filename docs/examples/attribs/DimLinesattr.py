@@ -65,6 +65,7 @@ dimension_attr.py line with arrows used as base for other dimensions
 
 import sys
 sys.path.append('../dims')
+sys.path.append('../dataclass')
 
 import attr
 from PIL import ImageFont, Image, ImageDraw
@@ -72,6 +73,8 @@ from math import sin, cos, tan, radians, sqrt, atan2, pi, degrees
 from collections import defaultdict
 from DimLinesPIL import angled_text, int_up, polar2cart, cart2polar,\
         DashedLine
+from DimLinesDC import LineDC
+
 
 def triple_tuple(instance, attribute, var):
     if isinstance(var, tuple) is False or len(var) !=3:
@@ -106,9 +109,10 @@ class atr:
 wi = 200
 hi = 200
 aq = atr(wi, hi)
-#print(wi,hi,'attr ')
+#print(wi,hi,'attr ',aq, 'aq')
 ############
 
+#print()
 def to_matrix(l,n):
     # convert list to multidimensional list
     return [l[i:i+n] for i in range(0, len(l), n)]
@@ -641,7 +645,7 @@ def dimension_attr(ptA, ptB=None, angle=None, arrow='both'):
             LineATTR((cx2, cy2), (cx3, cy3))
 
 def dims_attr(ptA, ptB, extA, extB=None, text=None, textorient=None,
-        tail=True):):
+        tail=True):
     # dimension vertical and horizontal tailed lines with extension lines.
     # ptA, ptB line coords, extA, extB extension lines to measured item, positive
     # to right when vertical or above it when horizontal
@@ -671,7 +675,8 @@ def dims_attr(ptA, ptB, extA, extB=None, text=None, textorient=None,
                 '"horizontal", "h", "vertical" or "v"'.format(textorient))
 
     aq.font = ImageFont.load_default() if aq.font is None else aq.font
-    (wide, height) = aq.font.getsize(text)
+    # (wide, height) = aq.font.getsize(text)
+    unused1, unused2, wide, height = aq.font.getbbox(text)
 
     h = height // 2
     w = wide // 2
@@ -757,8 +762,10 @@ def thickness_dim_attr(ptA, thick, angle=0, text=None):
 
     # thickness of item
     phir = radians(angle)
-    ft = aq.font.getsize(text)
-    h = ft[1] // 2
+    # ft = aq.font.getsize(text)
+    # unused1, unused2, wide, height
+    ft = aq.font.getbbox(text)
+    h = ft[3] // 2
     dx = - (h + aq.arrowhead[1] + 5) * cos(phir)
     dy = - (h + aq.arrowhead[1] + 5) * sin(phir)
 
@@ -881,7 +888,8 @@ def arc_dim_attr(centre,radius,begin,end,text=None):
     # placement of text
     if text is None:
         text = str(diff) + '°'
-    (wide, ht) = aq.font.getsize(text)
+    #(wide, ht) = aq.font.getsize(text)
+    unused1, unused2, wide, ht = aq.font.getbbox(text)
 
     # stop upside down text
     if bq[1] in (3,4) and eq[1] in (1,2):
@@ -891,12 +899,12 @@ def arc_dim_attr(centre,radius,begin,end,text=None):
     da = 7
 
     if diff == 90:
-        X, Y = polar2cart(centre, alpha, radius * sqrt(2) + dr)
+        X, Y = polar2cart(centre, alpha, radius * sqrt(2) + da)
     else:
         t = tan(radians(diff/2))
         a = wide/2 / t
         size = max(radius, a)
-        X, Y = polar2cart(centre, alpha, size + ht/2+dr)
+        X, Y = polar2cart(centre, alpha, size + ht/2+da)
 
     angled_text(aq.image, (X, Y), text, angle, aq.font, aall=aq.aall)
 
@@ -978,9 +986,11 @@ def slant_dim_attr(ptA, ptB =None, extA=None,  angle=None, length=None, text=Non
     ptDe = polar2cart(ptD, angle+90, extO-1)
     LineATTR(ptD3, ptDe)
 
-    ft = aq.font.getsize(text)
+    # ft = aq.font.getsize(text)
+    # unused1, unused2, wide, height
+    ft = aq.font.getbbox(text)
 
-    h = ft[1] // 2
+    h = ft[3] // 2
 
     angle = 360 + angle if angle < 0 else angle
     angle = angle - 360 if angle >= 360 else angle
@@ -1010,7 +1020,9 @@ def level_dim_attr(at, diam, ext=0, ldrA=20, ldrB=20, dash=(10,4), text=None, tr
         raise Exception('level_dim_attr: The extension tuple ext {} should be one' \
                         ' or two entries'.format(ext))
 
-    wide = aq.font.getsize(text) if text is not None else (0,0)
+    #wide = aq.font.getsize(text) if text is not None else (0,0)
+    #unused1, unused2, wide, height
+    wide = aq.font.getbbox(text) if text is not None else (0,0)
 
     angle = 0
 
@@ -1039,7 +1051,7 @@ def level_dim_attr(at, diam, ext=0, ldrA=20, ldrB=20, dash=(10,4), text=None, tr
 
     ldr_s = abs(p5[0] - p4[0])
 
-    if ldr_s < wide[0]:
+    if ldr_s < wide[2]:
         raise Exception('The leader size is too small: {} should be larger '\
                         'than the text width {}'.format(ldr_s, wide))
 
@@ -1068,6 +1080,6 @@ def level_dim_attr(at, diam, ext=0, ldrA=20, ldrB=20, dash=(10,4), text=None, tr
         aq.draw.line([at, (at[0] - exto, at[1])], width = 1, fill=aq.fill, back=aq.back)
 
 
-    p6 = (int((p4[0] + p5[0])//2), p4[1] - wide[1] - 5)
+    p6 = (int((p4[0] + p5[0])//2), p4[1] - wide[3] - 5)
 
     angled_text(aq.image, p6, text, angle, aq.font, fill=aq.fill)
