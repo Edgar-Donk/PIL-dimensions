@@ -617,8 +617,8 @@ def polyAA(im, dr, xy, fill=(0,0,0), outline=None, back=(255,255,221)):
     if isinstance(outline,tuple) is False:
         flood(im, dr, (cx, cy), fill, back)
 
-def plotPartCircleAA(dr, xm, ym, r, start, finish, width, sects, fill=(0,0,0),
-                    back=(255,255,221)):
+def PartCircleAA(dr, xm, ym, r, start, finish, width, sects, fill=(0,0,0),
+                    back=(255,255,221)): # plotPartCircleAA
     """ Draw a thick antialiased arc on light background,
     using polar attributes, either specify start and finish angles or end
     coordinates of enclosing lines starting at arc centre.
@@ -880,8 +880,8 @@ def dimension_aa(im, dr, ptA, ptB=None, angle=None, fill=(0,0,0),
         if ptB:
             LineAA(dr, (cx2, cy2), (cx3, cy3), back=back, fill=fill)
 
-def dims_aa(im, dr, ptA, ptB, extA, extB=None, text=None, font=None, 
-        textorient=None, fill=(0,0,0), back=(255,255,221),tail=True, 
+def dims_aa(im, dr, ptA, ptB, extA, extB=None, text=None, font=None,
+        textorient=None, fill=(0,0,0), back=(255,255,221),tail=True,
         arrowhead=(8, 10, 3), arrow='both'):
     """Dimension vertical and horizontal tailed lines with extender lines,
     option to use arrows.
@@ -956,7 +956,8 @@ def dims_aa(im, dr, ptA, ptB, extA, extB=None, text=None, font=None,
                 '"horizontal", "h", "vertical" or "v"'.format(textorient))
 
     font = ImageFont.load_default() if font is None else font
-    (wide, height)= font.getsize(text)
+    #(wide, height)= font.getsize(text)
+    unused1, unused2, wide, height = font.getbbox(text)
 
     h = height // 2
     w = wide // 2
@@ -1061,6 +1062,7 @@ def inner_dim_aa(im, dr, ptA, ptB, text=None, font=None, arrowhead=(8, 10, 3),
         raise Exception('The inner dimension: should be vertical or horizontal '\
                         '{} {} coordinates'.format(ptA, ptB))
 
+    print('font inner', font)
     angled_text(im, at, text, angle, font=font, fill='black')
 
 
@@ -1111,7 +1113,8 @@ def thickness_dim_aa(im, dr, ptA, thick, angle=0, text=None, font=None,
 
     # thickness of item
     phir = radians(angle)
-    (wide, height) = font.getsize(text)
+    #(wide, height) = font.getsize(text)
+    unused1, unused2, wide, height = font.getbbox(text)
     w = wide // 2
     h = height // 2
     dx = - (h + d2 + 5) * cos(phir)
@@ -1364,7 +1367,8 @@ def leader_aa(im, dr, at, angle=315, extA=20, extB=20, arrowhead=(3,5,1),
     """
 
     font = font if font else ImageFont.load_default()
-    (wide, height) = font.getsize(text)
+    #(wide, height) = font.getsize(text)
+    unused1, unused2, wide, height = font.getbbox(text)
 
     h = height // 2
 
@@ -1474,7 +1478,8 @@ def slant_dim_aa(im, dr, ptA, ptB =None, extA=None,  angle=None, length=None,
     LineAA(dr, p5,p6, back=back, fill=fill)
 
     font = ImageFont.load_default() if font is None else font
-    (wide, height) = font.getsize(text)
+    #(wide, height) = font.getsize(text)
+    unused1, unused2, wide, height = font.getbbox(text)
 
     h = height // 2
 

@@ -125,12 +125,10 @@ class atr:
         self.image = Image.new('RGB', (self.width, self.height), self.back)
         self.draw = ImageDraw.Draw(self.image)
 
-############
-# Change atr initialisation values here
+"""Change atr initialisation values here"""
 wi = 300
 hi = 160
 aq = atr(wi, hi)
-############
 
 def to_matrix(l,n):
     """Convert list to multidimensional list

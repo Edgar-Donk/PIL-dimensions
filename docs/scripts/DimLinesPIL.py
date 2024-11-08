@@ -192,13 +192,14 @@ def angled_text(im, at, text, angle, font, fill='black', aall=1):
     im : str
         PIL image handle
     """
-
-    width, height = font.getsize(text)
+    print('font', font)
+    #width, height = font.getsize(text)
+    unused1, unused2, width, height = font.getbbox(text)
 
     image1 = Image.new('RGBA', (width, height), (255,255,255, 0))
     draw1 = ImageDraw.Draw(image1)
     draw1.text((0, 0), text=text, font=font, fill=fill)
-    
+
     # ensure angles within 0 to 360
     angle = 360 + angle if angle < 0 else angle
     angle = angle if angle < 360 else angle - 360
@@ -289,7 +290,7 @@ def polar2cart(centre, phi, ray, units='degrees'):
     return int_up(x), int_up(y)
 
 def cart2polar(centre, outer):
-    """Convert cartesian coordinates to polar 
+    """Convert cartesian coordinates to polar
 
     Parameters
     ----------
@@ -300,8 +301,8 @@ def cart2polar(centre, outer):
 
     Returns
     -------
-    polar tuple degrees and ray (length) 
-    
+    polar tuple degrees and ray (length)
+
     """
     dx = outer[0] - centre[0]
     dy = outer[1] - centre[1]
@@ -313,7 +314,7 @@ def cart2polar(centre, outer):
 
     return deg, ray
 
-def arc_dim(im, dr, centre, radius, begin, end, fill=(0,0,0), 
+def arc_dim(im, dr, centre, radius, begin, end, fill=(0,0,0),
             text=None, font=None, arrowhead=(8,10,3)):
     """Draw arc dimension based on centre and radius
 
@@ -671,7 +672,7 @@ def dims(im, dr, ptA, ptB, extA, extB=None, text=None, font=None, textorient=Non
 
     elif ptA[1] == ptB[1]:
         # horizontal dimension
-        ang = 0 if exta > 0 else 180 
+        ang = 0 if exta > 0 else 180
         if textorient is None or textorient in ('horizontal', 'h'):
             dy = -h -5 if exta > 0 else +h +5
             phi = 0                        # text angle
@@ -682,7 +683,7 @@ def dims(im, dr, ptA, ptB, extA, extB=None, text=None, font=None, textorient=Non
     else:
         raise Exception('dims: should be vertical or horizontal '\
                         '{} {} coordinates'.format(ptA, ptB))
-    
+
     # extensions
     ptA3 = polar2cart(ptA, ang-90, 3)
     ptAe = polar2cart(ptA, ang+90, abs(exta))
@@ -704,7 +705,7 @@ def dims(im, dr, ptA, ptB, extA, extB=None, text=None, font=None, textorient=Non
     else:
         dimension(dr, ptA, ptB=ptB, width=1, fill=fill, arrowhead=arrowhead,
                 arrow=arrow)
-    
+
     at = (ptA[0]+ptB[0])//2+dx,(ptA[1]+ptB[1])//2+dy
 
     angled_text(im, at, text=text, angle=phi, font=font, fill=fill, aall=0)
