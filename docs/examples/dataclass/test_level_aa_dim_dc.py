@@ -7,7 +7,9 @@ from DimLinesDC import dc, level_dim_dc
 if __name__ == "__main__":
     #font = ImageFont.truetype('consola.ttf', 12)
     text='2500 hl'
-    wide, height = dc.font.getsize(text)
+    #wide, height = dc.font.getsize(text)
+    unused1, unused2, wide, height = dc.font.getbbox(text)  # text width, height
+
 
     #back = (255,255,221)
 
@@ -28,8 +30,8 @@ if __name__ == "__main__":
     at=(10,100)
     diam = c[0] - a[0]
 
-
-
+    # DimLinesDC.py", line 1070
+    # DashedLine() got an unexpected keyword argument 'back'
     level_dim_dc(at, diam, ldrA=20, ldrB=20, dash=(10,4), text=text, tri=8)
 
     dc.image.show()

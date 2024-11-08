@@ -353,6 +353,7 @@ def LineDC(ptA, ptB):
             diffs[i] = tuple(contrast(fill[j],ed,i) for j in range(3))
 
     for x in range (dr):                 # pixel loop
+        # AttributeError: type object 'dc' has no attribute 'draw'
         dc.draw.point([x0, y0], fill=diffs[abs(err-dx+dy)])
         e2 = err
         x2 = x0
@@ -677,10 +678,11 @@ def dims_dc(ptA, ptB, extA, extB=None, text=None, textorient=None,
                 '"horizontal", "h", "vertical" or "v"'.format(textorient))
 
     dc.font = ImageFont.load_default() if dc.font is None else dc.font
-    (wide, height) = dc.font.getsize(text)
+    #(wide, height) = dc.font.getsize(text)
+    wide = dc.font.getbbox(text)  # text width, height
 
-    h = height // 2
-    w = wide // 2
+    h = wide[3] // 2
+    w = wide[2] // 2
 
     dx = dy = 0
     if ptA[0] == ptB[0]:
@@ -766,8 +768,10 @@ def thickness_dim_dc(ptA, thick, angle=0, text=None):
 
     # thickness of item
     phir = radians(angle)
-    ft = dc.font.getsize(text)
-    h = ft[1] // 2
+    #ft = dc.font.getsize(text)
+    #unused1,unused2,wide, height
+    ft = dc.font.getbbox(text)  # text width, height
+    h = ft[3] // 2
     dx = - (h + dc.arrowhead[1] + 5) * cos(phir)
     dy = - (h + dc.arrowhead[1] + 5) * sin(phir)
 
@@ -891,7 +895,8 @@ def arc_dim_dc(centre,radius,begin,end,text=None):
     # placement of text
     if text is None:
         text = str(diff) + '°'
-    (wide, ht) = dc.font.getsize(text)
+    #(wide, ht) = dc.font.getsize(text)
+    unused1,unused2,wide, ht = dc.font.getbbox(text)  # text width, height
 
     # stop upside down text
     if bq[1] in (3,4) and eq[1] in (1,2):
@@ -900,13 +905,14 @@ def arc_dim_dc(centre,radius,begin,end,text=None):
     angle = alpha - 90
     da = 7
 
+    # dr not defined, da used in DimLinesPIL
     if diff == 90:
-        X, Y = polar2cart(centre, alpha, radius * sqrt(2) + dr)
+        X, Y = polar2cart(centre, alpha, radius * sqrt(2) + da)
     else:
         t = tan(radians(diff/2))
         a = wide/2 / t
         size = max(radius, a)
-        X, Y = polar2cart(centre, alpha, size + ht/2+dr)
+        X, Y = polar2cart(centre, alpha, size + ht/2+da)
 
     angled_text(dc.image, (X, Y), text, angle, dc.font, aall=dc.aall)
 
@@ -915,7 +921,8 @@ def leader_dc(at, angle=315, extA=20, extB=20, text=None):
     # for second part (extB). Only one arrow where leader points.
     # start at,
 
-    (wide, height) = dc.font.getsize(text)
+    #(wide, height) = dc.font.getsize(text)
+    unused1,unused2,wide, height = dc.font.getbbox(text)  # text width, height
 
     h = height // 2
 
@@ -990,9 +997,11 @@ def slant_dim_dc(ptA, ptB =None, extA=None,  angle=None, length=None, text=None)
     ptDe = polar2cart(ptD, angle+90, extO-1)
     LineDC(ptD3, ptDe)
 
-    ft = dc.font.getsize(text)
+    #ft = dc.font.getsize(text)
+    #unused1,unused2,wide, height
+    ft = dc.font.getbbox(text)  # text width, height
 
-    h = ft[1] // 2
+    h = ft[3] // 2
 
     angle = 360 + angle if angle < 0 else angle
     angle = angle - 360 if angle >= 360 else angle
@@ -1022,7 +1031,9 @@ def level_dim_dc(at, diam, ext=0, ldrA=20, ldrB=20, dash=(10,4), text=None, tri=
         raise Exception('level_dim_dc: The extension tuple ext {} should be one' \
                         ' or two entries'.format(ext))
 
-    wide = dc.font.getsize(text) if text is not None else (0,0)
+    #wide = dc.font.getsize(text) if text is not None else (0,0)
+    unused1,unused2,wide, height = dc.font.getbbox(text) if text is not None else (0,0)
+    # text width, height
 
     angle = 0
 
@@ -1051,13 +1062,14 @@ def level_dim_dc(at, diam, ext=0, ldrA=20, ldrB=20, dash=(10,4), text=None, tri=
 
     ldr_s = abs(p5[0] - p4[0])
 
-    if ldr_s < wide[0]:
+    if ldr_s < wide: # if ldr_s < wide[0]
         raise Exception('The leader size is too small: {} should be larger '\
                         'than the text width {}'.format(ldr_s, wide))
 
     p2 = (p0[0] + int_up(tri * 0.5), p0[1] - int_up(tri * sin(pi/3)))
     p1 = (p2[0] - tri, p2[1])
 
+    # DashedLine() got an unexpected keyword argument 'back'
     DashedLine(dc.draw, at, end_pos=p3, dash=dash, width = 1, fill=dc.fill,
             back=dc.back)
     polyDC([p0, p1, p2], outline=(0,0,0))
