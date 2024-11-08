@@ -31,7 +31,8 @@ def level_dim_aa(im, dr, at, diam, ext=0, ldrA=20, ldrB=20, dash=(10,4), text=No
     if font is None:
         font = ImageFont.load_default()
 
-    tsize = font.getsize(text) if text is not None else (0,0)
+    # tsize = font.getsize(text) if text is not None else (0,0)
+    tsize = font.getbbox(text) if text is not None else (0,0)
 
     angle = 0
 
@@ -57,7 +58,7 @@ def level_dim_aa(im, dr, at, diam, ext=0, ldrA=20, ldrB=20, dash=(10,4), text=No
 
     ldr_s = abs(p5[0] - p4[0])
 
-    if ldr_s < tsize[0]:
+    if ldr_s < tsize[2]:
         raise Exception('The leader size is too small: {} should be larger '\
                         'than the text width {}'.format(ldr_s, tsize))
 
@@ -93,7 +94,8 @@ def level_dim_aa(im, dr, at, diam, ext=0, ldrA=20, ldrB=20, dash=(10,4), text=No
 if __name__ == "__main__":
     Text = '1250 hl'
     Font = ImageFont.truetype('consola.ttf', 12)
-    wide, height = Font.getsize('(30, 84)')
+    # wide, height = Font.getsize('(30, 84)')
+    unused1, unused2, wide, height = Font.getbbox('(1, 1, 30, 84)')
 
     w, h = 200, 200
     image = Image.new('RGB', (w,h), '#FFFFDD')

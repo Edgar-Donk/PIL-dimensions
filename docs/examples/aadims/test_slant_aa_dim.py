@@ -50,7 +50,7 @@ def slant_dim_aa(im, dr, ptA, ptB =None, extA=(8,2),  angle=None, length=None,
     else:
         dimension_aa(im, dr, ptC, ptB=ptD, fill=fill,
                      arrowhead=arrowhead, arrow=arrow)
-        
+
     # extensions, leave a gap if extA 2 entries
     extO = extO if isinstance(extA, int) or len(extA) == 1 else extA[0]
     ptC3 = polar2cart(ptC, angle-90, 3)
@@ -61,17 +61,19 @@ def slant_dim_aa(im, dr, ptA, ptB =None, extA=(8,2),  angle=None, length=None,
     LineAA(dr, ptD3, ptDe, back=back, fill=fill)
 
     font = ImageFont.load_default() if font is None else font
-    ft = font.getsize(text)
+    # ft = font.getsize(text)
+    # unused1, unused2, wide, height
+    ft = font.getbbox(text)
 
-    h = ft[1] // 2
+    h = ft[3] // 2
 
     angle = 360 + angle if angle < 0 else angle
     angle = angle if angle <= 360 else angle - 360
-    
+
     mid = (ptC[0] + ptD[0])/2, (ptC[1] + ptD[1])/2
     at =  mid[0] + (h + 7) * sin(phir), mid[1] - (h + 7) * cos(phir)
     at = int_up(at[0]), int_up(at[1])
-    
+
     angled_text(im, at, text, angle, font, aall=0)
 
 if __name__ == "__main__":

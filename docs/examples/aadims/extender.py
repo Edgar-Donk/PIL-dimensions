@@ -53,5 +53,5 @@ leader_aa(image2, draw, (132,133), angle=135, extA=20, extB=110,
             text='dimension line', font=font)
 
 
-#image2.show()
-image2.save('../../temp/extender_aa.png')
+image2.show()
+#image2.save('../../temp/extender_aa.png')

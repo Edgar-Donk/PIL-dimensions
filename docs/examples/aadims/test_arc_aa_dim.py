@@ -292,7 +292,8 @@ def arc_dim_aa(im,dr,centre,radius,begin,end,fill=(0,0,0),text=None,font=None,
     if font is None:
         font_size=15
         font = ImageFont.truetype('consola.ttf', font_size)
-    (wide, ht) = font.getsize(text)
+    # (wide, ht) = font.getsize(text)
+    unused1, unused2, wide, ht = font.getbbox(text)
 
     # stop upside down text
     if bq[1] in (3,4) and eq[1] in (1,2):

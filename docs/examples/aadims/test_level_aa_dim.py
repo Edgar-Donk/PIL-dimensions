@@ -32,7 +32,8 @@ def level_dim_aa(im, dr, at, diam, ext=(15, 3), ldrA=20, ldrB=50, dash=(10,4),
 
     font = ImageFont.load_default() if font is None else font
 
-    (wide, ht) = font.getsize(text) if text is not None else (0,0)
+    # (wide, ht) = font.getsize(text) if text is not None else (0,0)
+    unused1, unused2, wide, ht = font.getbbox(text) if text is not None else (0,0)
 
     #hi = ht // 2
 
@@ -58,7 +59,7 @@ def level_dim_aa(im, dr, at, diam, ext=(15, 3), ldrA=20, ldrB=50, dash=(10,4),
             p0 = (at[0] + int_up(diam * 0.6), at[1])
             p4 = (p0[0] + int_up(ldrA * 0.5), p0[1] + int_up(ldrA * sin(pi/3)))
             p5 = (at[0], p4[1])
-        else:    
+        else:
             p0 = (at[0] - int_up(0.6 * exto), at[1])
             p4 = (p0[0] + int_up(ldrA * 0.5), p0[1] + int_up(ldrA * sin(pi/3)))
             p5 = (p4[0] - ldrB, p4[1])
@@ -73,10 +74,10 @@ def level_dim_aa(im, dr, at, diam, ext=(15, 3), ldrA=20, ldrB=50, dash=(10,4),
 
     p2 = (int_up(p0[0] + tri * 0.5), p0[1] - int_up(tri * sin(pi/3)))
     p1 = (p2[0] - tri, p2[1])
-    
+
     DashedLineAA(dr, at, p3, dash=dash, fill=fill, back=back)
     polyAA(im, dr, [p0, p1, p2], outline=fill, back=back)
-    
+
     if ldrA > 0:
         if ext == 0:
             DashedLineAA(dr, p2, p4, dash=dash, fill=fill, back=back)
@@ -104,7 +105,8 @@ if __name__ == "__main__":
 
     Text='2500 hl'
     Font = ImageFont.truetype('consola.ttf', 12)
-    wi, height = Font.getsize(Text)
+    # wi, height = Font.getsize(Text)
+    unused1, unused2, wi, height = Font.getbbox(Text)
 
     Back = (255,255,221)
 
@@ -125,7 +127,7 @@ if __name__ == "__main__":
 
     At=(a[0],100)
     Diam = c[0] - a[0]
-    
+
     #level_dim_aa(image, draw, At, Diam, ldrA=-20, ldrB=50, dash=(10,4), text=Text,
                 #fill=Fi, back=Back, tri=8, font=Font)
     level_dim_aa(image, draw, At, Diam, ldrA=20, ldrB=50, dash=(10,4), text=Text,

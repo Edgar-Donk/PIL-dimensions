@@ -391,7 +391,7 @@ def polyAA(im, dr, xy, back=(255,255,221), fill=(0,0,0), outline=None):
     PartLineAA(dr, xy[0], xy[lxy-1], back=back,fill=fill,cross=cross)
     if isinstance(outline,tuple) is False:
         flood(im, dr, (cx, cy), fill, back)
-        
+
 
 def PartCircleAA(dr, xm, ym, r, start, finish, width, sects, fill=(0,0,0),
                     back=(255,255,221)):
@@ -592,13 +592,13 @@ def dimension_aa(im, dr, ptA, ptB=None, angle=None, back=(255,255,255), fill=(0,
         if ptB:
             LineAA(dr, (cx2, cy2), (cx3, cy3), back=back, fill=fill)
 
-def dims_aa(im, dr, ptA, ptB, extA, extB=None, text=None, font=None, 
-        textorient=None, fill=(0,0,0), back=(255,255,221),tail=True, 
+def dims_aa(im, dr, ptA, ptB, extA, extB=None, text=None, font=None,
+        textorient=None, fill=(0,0,0), back=(255,255,221),tail=True,
         arrowhead=(8, 10, 3), arrow='both'):
     # dimension vertical and horizontal tailed lines with extension lines.
     # ptA, ptB line coords, extA, extB extension lines to measured item, positive
     # to right when vertical or above it when horizontal
-    
+
     if isinstance(extA, int) or len(extA) == 1:
         exta = extA if isinstance(extA, int) else extA[0]
     elif len(extA) == 2:
@@ -624,7 +624,8 @@ def dims_aa(im, dr, ptA, ptB, extA, extB=None, text=None, font=None,
                 '"horizontal", "h", "vertical" or "v"'.format(textorient))
 
     font = ImageFont.load_default() if font is None else font
-    (wide, height)= font.getsize(text)
+    # (wide, height)= font.getsize(text)
+    unused1, unused2, wide, height = font.getbbox(text)
 
     h = height // 2
     w = wide // 2
@@ -718,8 +719,10 @@ def thickness_dim_aa(im, dr, ptA, thick, angle=0, text=None, font=None, fill=(0,
 
     # thickness of item
     phir = radians(angle)
-    ft = font.getsize(text)
-    h = ft[1] // 2
+    # ft = font.getsize(text)
+    # unused1, unused2, wide, height
+    ft = font.getbbox(text)
+    h = ft[3] // 2
     dx = - (h + arrowhead[1] + 5) * cos(phir)
     dy = - (h + arrowhead[1] + 5) * sin(phir)
 
@@ -858,7 +861,8 @@ def arc_dim_aa(im,dr,centre,radius,begin,end,fill=(0,0,0),text=None,font=None,
     if font is None:
         font_size=15
         font = ImageFont.truetype('consola.ttf', font_size)
-    (wide, ht) = font.getsize(text)
+    # (wide, ht) = font.getsize(text)
+    unused1, unused2, wide, ht = font.getbbox(text)
 
     # stop upside down text
     if bq[1] in (3,4) and eq[1] in (1,2):
@@ -884,7 +888,8 @@ def leader_aa(im, dr, at, angle=315, extA=20, extB=20, arrowhead=(3,5,1),
     # start at,
 
     font = font if font else ImageFont.load_default()
-    (wide, height) = font.getsize(text)
+    # (wide, height) = font.getsize(text)
+    unused1, unused2, wide, height = font.getbbox(text)
 
     h = height // 2
 
@@ -961,10 +966,13 @@ def slant_dim_aa(im, dr, ptA, ptB =None, extA=(8,2),  angle=None, length=None,
     ptDe = polar2cart(ptD, angle+90, extO-1)
     LineAA(dr, ptD3, ptDe, back=back, fill=fill)
 
+    print(font , 'font')
     font = ImageFont.load_default() if font is None else font
-    ft = font.getsize(text)
+    #ft = font.getsize(text)
+    #unused1, unused2, wide, height
+    ft = font.getbbox(text)
 
-    h = ft[1] // 2
+    h = ft[3] // 2
 
     angle = 360 + angle if angle < 0 else angle
     angle = angle - 360 if angle >= 360 else angle
@@ -998,7 +1006,8 @@ def level_dim_aa(im, dr, at, diam, ext=0, ldrA=20, ldrB=20, dash=(10,4), text=No
 
     font = ImageFont.load_default() if font is None else font
 
-    wide, ht = font.getsize(text) if text is not None else (0,0)
+    # wide, ht = font.getsize(text) if text is not None else (0,0)
+    unused1, unused2, wide, ht = font.getbbox(text) if text is not None else (0,0)
 
     angle = 0
 

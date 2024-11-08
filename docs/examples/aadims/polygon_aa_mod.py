@@ -159,4 +159,4 @@ if __name__ == "__main__":
     #print(len(pts),len(pts[0]))
     #LineAA(drawl, start_pos, end_pos, back=(255,255,221),fill=(255,0,0))
 
-    #image.show()
+    image.show()

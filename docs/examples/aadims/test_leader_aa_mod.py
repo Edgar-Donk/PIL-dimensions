@@ -5,7 +5,8 @@ if __name__ == "__main__":
     Text = 'y+ε+m'
 
     Font = ImageFont.truetype('consola.ttf', 12)
-    (wi, ht) = Font.getsize(Text)
+    # (wi, ht) = Font.getsize(Text)
+    unused1, unused2, wi, ht = Font.getbbox(Text)
 
     eb = wi + 10
 

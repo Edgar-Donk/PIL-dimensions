@@ -19,7 +19,8 @@ def thickness_dim_aa(im, dr, ptA, thick, angle=0, text=None, font=None, fill=(0,
     dimension_aa(im, dr, ptB, angle=angle, arrow='first',fill=fill,back=back)
 
     # thickness of item
-    (wide, height) = font.getsize(text)
+    # (wide, height) = font.getsize(text)
+    unused1, unused2, wide, height = font.getbbox(text)
     h = height // 2
     dx = - (h + arrowhead[1] + 5) * cos(phir)
     dy = - (h + arrowhead[1] + 5) * sin(phir)

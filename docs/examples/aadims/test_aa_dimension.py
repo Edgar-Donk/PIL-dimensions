@@ -1,3 +1,6 @@
+import sys
+sys.path.append('C:\\Users\\mike\\sphinx\\dims_rev\\docs\\examples\\dims')
+
 from PIL import Image, ImageDraw, ImageFont
 from DimLinesPIL import polar2cart
 from DimLinesAA import dimension_aa
@@ -17,7 +20,7 @@ sdraw = ImageDraw.Draw(image2)
 ct = polar2cart(at, angle, length)
 fill = (0,0,0)
 
-dimension_aa(image2,sdraw, at, fill=fill, 
+dimension_aa(image2,sdraw, at, fill=fill,
                 angle=angle, back=back) # ptB=ptB,
 
 image2.show()

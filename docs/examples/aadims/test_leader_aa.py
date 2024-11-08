@@ -14,7 +14,8 @@ def leader_aa(im, dr, at, angle=315, extA=20, extB=20, arrowhead=(3,5,1),
 
     #font = ImageFont.load_default() if font is None else font
     font = font if font else ImageFont.load_default()
-    (wide, height) = font.getsize(text)
+    # (wide, height) = font.getsize(text)
+    unused1, unused2, wide, height = font.getbbox(text)
 
     h = height // 2
 
@@ -41,7 +42,8 @@ if __name__ == "__main__":
     Text = 'Test' #'y+ε+m'
 
     Font = ImageFont.truetype('consola.ttf', 12)
-    (wi, ht) = Font.getsize(Text)
+    # (wi, ht) = Font.getsize(Text)
+    unused1, unused2, wi, ht = Font.getbbox(Text)
 
     eb = wi + 10
     Back = (255,255,221)

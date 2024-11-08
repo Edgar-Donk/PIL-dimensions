@@ -1,3 +1,6 @@
+import sys
+sys.path.append('../dims')
+
 from PIL import Image, ImageFont
 from DimLinesPIL import polar2cart, angled_text
 
@@ -7,7 +10,8 @@ if __name__ == "__main__":
     Angle = 0
 
     Font = ImageFont.truetype('consola.ttf', 25)
-    tsize = Font.getsize(Text + str(0000))
+    # tsize = Font.getsize(Text + str(0000))
+    tsize = Font.getbbox(Text + str(0000))
 
     w = 501
     h = 501

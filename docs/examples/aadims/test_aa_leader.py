@@ -41,7 +41,8 @@ if __name__ == "__main__":
     text = 'y+ε+m'
 
     font = ImageFont.truetype('consola.ttf', 12)
-    (wi, ht) = font.getsize(text)
+    # (wi, ht) = font.getsize(text)
+    unused1, unused2, wi, ht = font.getbbox(text)
 
     eb = wi + 10
     back = (255,255,221)

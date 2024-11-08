@@ -40,7 +40,8 @@ def dims_aa(im, dr, ptA, ptB, extA, extB=None, text=None, font=None, textorient=
                 '"horizontal", "h", "vertical" or "v"'.format(textorient))
 
     font = ImageFont.load_default() if font is None else font
-    (wide, height)= font.getsize(text)
+    # (wide, height)= font.getsize(text)
+    unused1, unused2, wide, height = font.getbbox(text)
 
     h = height // 2
     w = wide // 2
