@@ -43,6 +43,8 @@ dimension_dc.py line with arrows used as base for other dimensions
     draws an aa polygon
 * PartCircleDC,
     aa circle with start and finish
+* make_arc_dc,
+    driving routine for arcs
 * dimension_dc,
     basic aa line with arrows either end
 * dims_dc,
@@ -71,9 +73,8 @@ from dataclasses import dataclass, field
 from PIL import ImageFont, Image, ImageDraw
 from math import sin, cos, tan, radians, sqrt, atan2, pi, degrees
 from collections import defaultdict
-from DimLinesPIL import angled_text, int_up, polar2cart, cart2polar,\
-        DashedLine
-
+from DimLinesPIL import angled_text, int_up, polar2cart, cart2polar
+        
 @dataclass
 class dc:
     width: int
@@ -254,7 +255,7 @@ def DashedLineDC(ptA, ptB, dash=(5,5), adjust=False):
         if dc.fill == (0,0,0):
             diffs[i] = tuple(int(255*i/ed) for j in range(3))
         else:
-            diffs[i] = tuple(contrast(fill[j],ed,i) for j in range(3))
+            diffs[i] = tuple(contrast(dc.fill[j],ed,i) for j in range(3))
 
     for _ in range (dr):
         if pattern[count] == 1:
@@ -350,7 +351,7 @@ def LineDC(ptA, ptB):
         if dc.fill == (0,0,0):
             diffs[i] = tuple(int(255*i/ed) for j in range(3))
         else:
-            diffs[i] = tuple(contrast(fill[j],ed,i) for j in range(3))
+            diffs[i] = tuple(contrast(dc.fill[j],ed,i) for j in range(3))
 
     for x in range (dr):                 # pixel loop
         # AttributeError: type object 'dc' has no attribute 'draw'
@@ -395,12 +396,12 @@ def PartLineDC(ptA, ptB, cross=0):
         return 255 if comp == 255 else int((255-comp) * j / size) + comp
 
     diffs = defaultdict(list)
-    diffs = defaultdict(lambda:back, diffs)
+    diffs = defaultdict(lambda:dc.back, diffs)
     for i in range(int(ed)+1):
         if dc.fill == (0,0,0):
             diffs[i] = tuple(int(255*i/ed) for k in range(3))
         else:
-            diffs[i] = tuple(contrast(fill[k],ed,i) for k in range(3))
+            diffs[i] = tuple(contrast(dc.fill[k],ed,i) for k in range(3))
 
     for _ in range (dr):
 
@@ -573,7 +574,7 @@ def PartCircleDC(xm, ym, r, start, finish, sects, width=1):
             e0 = -ein
 
             if n < width-2:
-                fact = fill
+                fact = dc.fill
             elif n == width-1:
                 fact = diffs[abs(int(e0-maxd*thfact/10))] if n==0 else \
                         diffsm[e0-maxdi[n-1]]
@@ -679,10 +680,10 @@ def dims_dc(ptA, ptB, extA, extB=None, text=None, textorient=None,
 
     dc.font = ImageFont.load_default() if dc.font is None else dc.font
     #(wide, height) = dc.font.getsize(text)
-    wide = dc.font.getbbox(text)  # text width, height
+    unused1, unused2, wide,height = dc.font.getbbox(text)  
 
-    h = wide[3] // 2
-    w = wide[2] // 2
+    h = height // 2
+    w = wide // 2
 
     dx = dy = 0
     if ptA[0] == ptB[0]:
@@ -896,7 +897,7 @@ def arc_dim_dc(centre,radius,begin,end,text=None):
     if text is None:
         text = str(diff) + '°'
     #(wide, ht) = dc.font.getsize(text)
-    unused1,unused2,wide, ht = dc.font.getbbox(text)  # text width, height
+    unused1,unused2,wide, ht = dc.font.getbbox(text)  
 
     # stop upside down text
     if bq[1] in (3,4) and eq[1] in (1,2):
@@ -999,7 +1000,7 @@ def slant_dim_dc(ptA, ptB =None, extA=None,  angle=None, length=None, text=None)
 
     #ft = dc.font.getsize(text)
     #unused1,unused2,wide, height
-    ft = dc.font.getbbox(text)  # text width, height
+    ft = dc.font.getbbox(text)  
 
     h = ft[3] // 2
 
@@ -1033,9 +1034,12 @@ def level_dim_dc(at, diam, ext=0, ldrA=20, ldrB=20, dash=(10,4), text=None, tri=
 
     #wide = dc.font.getsize(text) if text is not None else (0,0)
     unused1,unused2,wide, height = dc.font.getbbox(text) if text is not None else (0,0)
-    # text width, height
+    
 
     angle = 0
+    
+    # check whether gap is required
+    est = 0 if isinstance(ext, int) or len(ext) == 1 else ext[1] + 1
 
     p3 = (at[0] + diam, at[1]) # outer wall
     # check whether left or right position
@@ -1070,7 +1074,7 @@ def level_dim_dc(at, diam, ext=0, ldrA=20, ldrB=20, dash=(10,4), text=None, tri=
     p1 = (p2[0] - tri, p2[1])
 
     # DashedLine() got an unexpected keyword argument 'back'
-    DashedLine(dc.draw, at, end_pos=p3, dash=dash, width = 1, fill=dc.fill,
+    DashedLineDC(dc.draw, at, end_pos=p3, dash=dash, width = 1, fill=dc.fill,
             back=dc.back)
     polyDC([p0, p1, p2], outline=(0,0,0))
     if ldrA > 0:
