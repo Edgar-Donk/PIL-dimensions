@@ -73,7 +73,6 @@ from math import sin, cos, tan, radians, sqrt, atan2, pi, degrees
 from collections import defaultdict
 from DimLinesPIL import angled_text, int_up, polar2cart, cart2polar,\
         DashedLine
-from DimLinesDC import LineDC
 
 
 def triple_tuple(instance, attribute, var):
@@ -252,7 +251,7 @@ def DashedLineATTR(ptA, ptB, dash=(5,5), adjust=False):
         if aq.fill == (0,0,0):
             diffs[i] = tuple(int(255*i/ed) for j in range(3))
         else:
-            diffs[i] = tuple(contrast(fill[j],ed,i) for j in range(3))
+            diffs[i] = tuple(contrast(aq.fill[j],ed,i) for j in range(3))
 
     for _ in range (dr):
         if pattern[count] == 1:
@@ -348,7 +347,7 @@ def LineATTR(ptA, ptB):
         if aq.fill == (0,0,0):
             diffs[i] = tuple(int(255*i/ed) for j in range(3))
         else:
-            diffs[i] = tuple(contrast(fill[j],ed,i) for j in range(3))
+            diffs[i] = tuple(contrast(aq.fill[j],ed,i) for j in range(3))
 
     for x in range (dr):                 # pixel loop
         aq.draw.point([x0, y0], fill=diffs[abs(err-dx+dy)])
@@ -392,12 +391,12 @@ def PartLineATTR(ptA, ptB, cross=0):
         return 255 if comp == 255 else int((255-comp) * j / size) + comp
 
     diffs = defaultdict(list)
-    diffs = defaultdict(lambda:back, diffs)
+    diffs = defaultdict(lambda: aq.back, diffs)
     for i in range(int(ed)+1):
         if aq.fill == (0,0,0):
             diffs[i] = tuple(int(255*i/ed) for k in range(3))
         else:
-            diffs[i] = tuple(contrast(fill[k],ed,i) for k in range(3))
+            diffs[i] = tuple(contrast(aq.fill[k],ed,i) for k in range(3))
 
     for _ in range (dr):
 
@@ -570,7 +569,7 @@ def PartCircleATTR(xm, ym, r, start, finish, sects, width=1):
             e0 = -ein
 
             if n < width-2:
-                fact = fill
+                fact = aq.fill
             elif n == width-1:
                 fact = diffs[abs(int(e0-maxd*thfact/10))] if n==0 else \
                         diffsm[e0-maxdi[n-1]]
@@ -709,23 +708,23 @@ def dims_attr(ptA, ptB, extA, extB=None, text=None, textorient=None,
     # extensions
     ptA3 = polar2cart(ptA, ang-90, 3)
     ptAe = polar2cart(ptA, ang+90, abs(exta))
-    LineDC(ptA3, ptAe)
+    LineATTR(ptA3, ptAe)
     ptB3 = polar2cart(ptB, ang-90, 3)
     ptBe = polar2cart(ptB, ang+90, abs(extb))
-    LineDC(ptB3, ptBe)
+    LineATTR(ptB3, ptBe)
 
     # dimension line and tails or arrows
     if aq.tail:
-        LineDC(ptA, ptB)
+        LineATTR(ptA, ptB)
         # create 45° end stubs
         p2 = ptA[0]+3, ptA[1]+3
         p3 = ptA[0]-3, ptA[1]-3
         p4 = ptB[0]+3, ptB[1]+3
         p5 = ptB[0]-3, ptB[1]-3
-        LineDC(p2,p3)
-        LineDC(p4,p5)
+        LineATTR(p2,p3)
+        LineATTR(p4,p5)
     else:
-        dimension_dc(ptA, ptB=ptB)
+        dimension_attr(ptA, ptB=ptB)
 
     at = (ptA[0]+ptB[0])//2+dx,(ptA[1]+ptB[1])//2+dy
 
@@ -1025,6 +1024,9 @@ def level_dim_attr(at, diam, ext=0, ldrA=20, ldrB=20, dash=(10,4), text=None, tr
     wide = aq.font.getbbox(text) if text is not None else (0,0)
 
     angle = 0
+    
+    # check whether gap is required
+    est = 0 if isinstance(ext, int) or len(ext) == 1 else ext[1] + 1
 
     p3 = (at[0] + diam, at[1]) # outer wall
     # check whether left or right position

@@ -7,8 +7,8 @@ def rgb_tuple(instance, attribute, var):
 
 @attr.s(slots=True, auto_attribs=True)
 class atr:
-    width: int
-    height: int
+    width: int = attr.ib(init=False)
+    height: int = attr.ib(init=False)
     image: str = attr.ib(init=False)
     draw : str = attr.ib(init=False)
     fill: tuple[int] = attr.ib(validator=[attr.validators.instance_of(tuple),
