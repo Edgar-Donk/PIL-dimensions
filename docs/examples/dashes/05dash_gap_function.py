@@ -3,7 +3,7 @@ sys.path.append('../dims')
 
 from PIL import Image, ImageDraw, ImageFont
 from math import dist
-from numpy import linspace, concatenate, argsort, int_
+from numpy import linspace, concatenate, int_
 from DimLinesPIL import angled_text, dims, int_up
 
 def line_dashed(dr, start_pos, end_pos, dash=(5,5), width = 1, fill='black'):
@@ -25,7 +25,8 @@ def line_dashed(dr, start_pos, end_pos, dash=(5,5), width = 1, fill='black'):
 
     start_arr = linspace((x0, y0), (x1, y1), dash_amount)
     end_arr = linspace((x0, y0 + dash2), (x1, y1 + dash2), dash_amount)
-
+    print(start_arr, 'start_arr')
+    
     both_arr = concatenate([start_arr, end_arr], axis=0)
 
     fin_arr = int_(both_arr[both_arr[:, 1].argsort()])

@@ -2,8 +2,8 @@ import sys
 sys.path.append('../dims')
 
 from PIL import Image, ImageDraw, ImageFont
-from DimLinesPIL import angled_text, dims, polar2cart, int_up
-from numpy import array, linspace, concatenate, argsort, int_, delete
+from DimLinesPIL import polar2cart, int_up
+from numpy import linspace, concatenate, int_, delete
 from math import dist, atan2, tan, pi, radians
 
 def line_dashed(dr, start_pos, end_pos=None, dash=(5,5), angle=None,
@@ -34,7 +34,7 @@ def line_dashed(dr, start_pos, end_pos=None, dash=(5,5), angle=None,
     dash_gap_length = sum(dash)
 
     # is the line increasing or decreasing
-    fact = -1 if abs(theta) >= pi else 1
+    #fact = -1 if abs(theta) >= pi else 1
     theta = theta if theta > 0 else 2*pi + theta # change minus values
     phi = pi/2 - theta
     fx = -1 if pi/2 < theta < 3*pi/2 else 1

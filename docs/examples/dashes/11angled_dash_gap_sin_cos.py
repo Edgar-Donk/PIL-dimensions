@@ -2,8 +2,8 @@ import sys
 sys.path.append('../dims')
 
 from PIL import Image, ImageDraw, ImageFont
-from DimLinesPIL import angled_text, dims, polar2cart, int_up
-from numpy import array, linspace, concatenate, argsort, int_, delete, all
+from DimLinesPIL import polar2cart, int_up
+from numpy import linspace, concatenate, int_, delete
 from math import dist, atan2, sin, cos, radians
 
 def line_dashed(dr, start_pos, end_pos=None, dash=(5,5), angle=None,

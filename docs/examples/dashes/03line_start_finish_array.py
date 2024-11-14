@@ -3,7 +3,6 @@ sys.path.append('../dims')
 
 from PIL import Image, ImageDraw, ImageFont
 from DimLinesPIL import angled_text, dims
-from numpy import array
 
 Font = ImageFont.truetype('consola.ttf', 12)
 

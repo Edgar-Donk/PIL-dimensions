@@ -3,8 +3,8 @@ sys.path.append('../dims')
 
 from PIL import Image, ImageDraw, ImageFont
 from math import dist, atan2, sin, cos
-from numpy import array, linspace, concatenate, argsort, int_
-from DimLinesPIL import angled_text, dims, int_up
+from numpy import array, linspace, concatenate, int_
+from DimLinesPIL import int_up
 
 def line_dashed(dr, start_pos, end_pos, dash=(5,5), width = 1, fill='black'):
     # create dashed lines in PIL
