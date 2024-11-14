@@ -59,24 +59,25 @@ print(sammy.skeleton)
 print()
 
 #terry = Trout()
+# caused an error, so terry.first_name = "Terry" cannot be used
 
-# Initialize first name
-#terry.first_name = "Terry"
-
+# Initialize Trout supplying first_name, which is positional
 terry = Trout("Terry")
 
-# Use parent __init__() through super()
+# Use parent values for last name and eyelids
 print(terry.first_name + " " + terry.last_name)
 print(terry.eyelids)
 
-# Use child __init__() override
+# Use new variable and its value
 print(terry.water)
 
 # Use parent swim() method
 terry.swim()
 
+# Use parent swim_backwards() method
 terry.swim_backwards()
 
 print()
 
 percy.live_with_anemone()
+# AttributeError: 'Pike' object has no attribute 'live_with_anemone'
