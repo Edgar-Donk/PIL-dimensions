@@ -1,9 +1,8 @@
-sphinx == "8.1.3
+sphinx
 numpydoc
 Pillow
 numpy
 sphinx-copybutton
 pydata_sphinx_theme
 attrs
-
 dataclasses
