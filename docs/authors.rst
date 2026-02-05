@@ -135,36 +135,48 @@ Some of the trickier parts of tkinter.ttk
 
 .. _froth: https://frothy-brew.readthedocs.io/en/latest/index.html
 
-.. image:: _static/frothy_brew.png
-   :width: 552
-   :height: 104
+.. image:: _static/bigben.avif
+   :width: 200
+   :height: 196
+   :align: left 
    :target: froth_
    :class: only-light
 
-.. image:: _static/frothy_brewneon.png
-   :width: 552
-   :height: 104
+.. image:: _static/bigbenneon.avif
+   :width: 200
+   :height: 196
+   :align: left 
    :target: froth_
    :class: only-dark
 
-From ttk.notebook to ttk.scale, with canvas move and create a colour picker.
+|
+
+:AL:`Frothy Brew` 
+
+tkinter odds and ends, from ttk.notebook to ttk.scale, with canvas move and create a colour picker.
 
 Styling with tkinter.ttk
 ------------------------
 
 .. _style: https://tkinterttkstyle.readthedocs.io/en/latest/index.html
 
-.. image:: _static/ben_style.png
-   :width: 831
-   :height: 104
+.. image:: _static/bigben.avif
+   :width: 200
+   :height: 196
+   :align: left 
    :target: style_
    :class: only-light
 
-.. image:: _static/benneon_style.png
-   :width: 831
-   :height: 104
+.. image:: _static/bigbenneon.avif
+   :width: 200
+   :height: 196
+   :align: left 
    :target: style_
    :class: only-dark
+
+|
+
+:AL:`Putting on the Style` 
 
 Creating your own theme using Style.
 
@@ -173,36 +185,49 @@ Linking Python to Arduino
 
 .. _ard: https://electronic-python.readthedocs.io/en/latest/index.html
 
-.. image:: _static/arduino.png
-   :width: 572
-   :height: 104
+.. image:: _static/bigben.avif
+   :width: 200
+   :height: 196
+   :align: left 
    :target: ard_
    :class: only-light
 
-.. image:: _static/arduinoneon.png
-   :width: 572
-   :height: 104
+.. image:: _static/bigbenneon.avif
+   :width: 200
+   :height: 196
+   :align: left 
    :target: ard_
    :class: only-dark
 
-Basics and working with VPython, then create a digital gauge.
+|
+
+:AL:`Electronic Python` 
+
+Basics and working with VPython create a digital gauge 
+
 
 Water Properties
 ----------------
 
 .. _ale: https://adams-ale.readthedocs.io/en/latest/index.html
 
-.. image:: _static/ben_ale.png
-   :width: 533
-   :height: 104
-   :target: ale_
+.. image:: _static/bigben.avif
+   :width: 200
+   :height: 196
+   :align: left 
+   :target: froth_
    :class: only-light
 
-.. image:: _static/ben_aleneon.png
-   :width: 533
-   :height: 104
-   :target: ale_
+.. image:: _static/bigbenneon.avif
+   :width: 200
+   :height: 196
+   :align: left 
+   :target: froth_
    :class: only-dark
+
+|
+
+:AL:`Adam's Ale` 
 
 Simplified but accurate water properties with interactive altair plots.
 
@@ -211,37 +236,97 @@ Iterative Solutions
 
 .. _imps: https://pesky-imps.readthedocs.io/en/latest/index.html
 
-.. image:: _static/ben_imps.png
-   :width: 533
-   :height: 104
+.. image:: _static/bigben.avif
+   :width: 200
+   :height: 196
+   :align: left 
    :target: imps_
    :class: only-light
 
-.. image:: _static/ben_impsneon.png
-   :width: 533
-   :height: 104
+.. image:: _static/bigbenneon.avif
+   :width: 200
+   :height: 196
+   :align: left 
    :target: imps_
    :class: only-dark
 
-Iterative methods used for interpolation, extrapolation, root finding and 
-equation optimisation, many of the methods are similar.
+|
 
-Dataframe
----------
+:AL:`Pesky Imps` 
+
+Iterative interpolation, extrapolation. finding roots and optimisation
+
+Pandas Dataframe
+----------------
 
 .. _framed: https://frameyourdata.readthedocs.io/en/latest/index.html
 
-.. image:: _static/ben_framed.png
-   :width: 653
-   :height: 104
+.. image:: _static/bigben.avif
+   :width: 200
+   :height: 196
+   :align: left
    :target: framed_
    :class: only-light
 
-.. image:: _static/ben_framedneon.png
-   :width: 653
-   :height: 104
+.. image:: _static/bigbenneon.avif
+   :width: 200
+   :height: 196
+   :align: left
    :target: framed_
    :class: only-dark
 
-Load data, change the names and the layout (wide or long format), clean, save 
-and visualise the data.
+|
+
+:AL:`Framed!`
+
+Load, change name and layout then visualise the data
+
+Flask
+-----
+
+.. _flask: https://python-flask.readthedocs.io/en/latest/index.html
+
+.. image:: _static/bigben.avif
+   :width: 200
+   :height: 196
+   :align: left
+   :target: flask_
+   :class: only-light
+
+.. image:: _static/bigbenneon.avif
+   :width: 200
+   :height: 196
+   :align: left
+   :target: flask_
+   :class: only-dark
+
+|
+
+:AL:`Leather Bottle`
+
+Create web pages, control with python, run with Flask server  
+
+Polars Dataframe
+----------------
+
+.. _bucks: https://big-bucks.readthedocs.io/en/latest/index.html
+
+.. image:: _static/bigben.avif
+   :width: 200
+   :height: 196
+   :align: left
+   :target: bucks_
+   :class: only-light
+
+.. image:: _static/bigbenneon.avif
+   :width: 200
+   :height: 196
+   :align: left
+   :target: bucks_
+   :class: only-dark
+
+|
+
+:AL:`Big Bucks`
+
+Load larger dataframes, find out its properties then change as necessary.

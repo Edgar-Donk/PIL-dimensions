@@ -7,7 +7,7 @@
 #
 import os
 import sys
-sys.path.insert(0, os.path.abspath('./scripts/')) # sys.path.insert(0, os.path.abspath('.'))
+sys.path.insert(0, os.path.abspath('./scripts/'))
 
 # -- Project information -----------------------------------------------------
 
@@ -59,6 +59,11 @@ pygments_style = 'sphinx'
 # a list of builtin themes.
 #
 html_theme = "pydata_sphinx_theme"
+# Add any paths that contain custom static files (such as style sheets) here,
+# relative to this directory. They are copied after the builtin static files,
+# so a file named "default.css" will overwrite the builtin "default.css".
+html_static_path = ['_static']
+html_css_files = ['custom.css']
 
 html_theme_options = {
   "show_prev_next": True,
@@ -72,10 +77,6 @@ html_sidebars = {
     "changelog": [],
 }
 
-# Add any paths that contain custom static files (such as style sheets) here,
-# relative to this directory. They are copied after the builtin static files,
-# so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['_static']
 
 # option for show/hide code
 def setup(app):
@@ -84,8 +85,8 @@ def setup(app):
 html_theme_options = {
    "logo": {
       "text": "a whole new dimension",
-      "image_light": 'bigbenc.png',
-      "image_dark": "bigbencneon.png",
+      "image_light": 'bigbenc.avif',
+      "image_dark": "bigbencneon.avif",
    }
 }
 
@@ -93,3 +94,10 @@ html_theme_options = {
 
 
 html_favicon = '_static/ben1.ico'
+
+smartquotes = False
+
+rst_prolog = f"""
+.. role:: AL
+    :class: keys
+"""
